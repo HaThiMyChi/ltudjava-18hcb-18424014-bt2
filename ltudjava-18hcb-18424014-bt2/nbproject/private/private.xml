@@ -3,9 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/CacMonHoc_TaiLieuMonHoc/TaiLieuCacMonHoc/HoanChinhDaiHoc/HocKyII/LapTrinhUngDungJava/BaiTap2Hibernate/ltudjava-18hcb-18424014-bt2/src/ltudjava/pkg18hcb/pkg18424014/bt2/Ltudjava18hcb18424014Bt2.java</file>
-            <file>file:/D:/CacMonHoc_TaiLieuMonHoc/TaiLieuCacMonHoc/HoanChinhDaiHoc/HocKyII/LapTrinhUngDungJava/BaiTap2Hibernate/ltudjava-18hcb-18424014-bt2/src/form/FormMainSystem.java</file>
-            <file>file:/D:/CacMonHoc_TaiLieuMonHoc/TaiLieuCacMonHoc/HoanChinhDaiHoc/HocKyII/LapTrinhUngDungJava/BaiTap2Hibernate/ltudjava-18hcb-18424014-bt2/src/form/FormLogin.java</file>
+            <file>file:/D:/CacMonHoc_TaiLieuMonHoc/TaiLieuCacMonHoc/HoanChinhDaiHoc/HocKyII/LapTrinhUngDungJava/ltudjava-18hcb-18424014-bt2/src/connect/HibernateUtil.java</file>
+            <file>file:/D:/CacMonHoc_TaiLieuMonHoc/TaiLieuCacMonHoc/HoanChinhDaiHoc/HocKyII/LapTrinhUngDungJava/ltudjava-18hcb-18424014-bt2/src/ltudjava/pkg18hcb/pkg18424014/bt2/Ltudjava18hcb18424014Bt2.java</file>
+            <file>file:/D:/CacMonHoc_TaiLieuMonHoc/TaiLieuCacMonHoc/HoanChinhDaiHoc/HocKyII/LapTrinhUngDungJava/ltudjava-18hcb-18424014-bt2/src/hibernate.cfg.xml</file>
+            <file>file:/D:/CacMonHoc_TaiLieuMonHoc/TaiLieuCacMonHoc/HoanChinhDaiHoc/HocKyII/LapTrinhUngDungJava/ltudjava-18hcb-18424014-bt2/src/POJO/User.hbm.xml</file>
+            <file>file:/D:/CacMonHoc_TaiLieuMonHoc/TaiLieuCacMonHoc/HoanChinhDaiHoc/HocKyII/LapTrinhUngDungJava/ltudjava-18hcb-18424014-bt2/src/form/FormLogin.java</file>
         </group>
     </open-files>
 </project-private>

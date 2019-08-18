@@ -6,6 +6,12 @@
 package ltudjava.pkg18hcb.pkg18424014.bt2;
 
 import form.FormLogin;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import connect.*;
+import POJO.*;
+import java.util.List;
+import org.hibernate.HibernateException;
 
 
 
@@ -20,11 +26,26 @@ public class Ltudjava18hcb18424014Bt2 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormLogin().setVisible(true);
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            String hql = "from User "; 
+            Query query = session.createQuery(hql);
+            List<User> lst = query.list();
+            for(User ac : lst)
+            {
+                System.out.println(ac.getUsername());
             }
-        });
+        }
+        catch(HibernateException ex)
+        {
+            System.out.println(ex.getMessage());
+            System.exit(0);
+        }
+        finally
+        {
+            session.close();
+            System.exit(0);
+        }
     }
     
 }
