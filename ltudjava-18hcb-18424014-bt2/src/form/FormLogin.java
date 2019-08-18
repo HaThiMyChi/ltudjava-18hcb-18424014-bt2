@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package form;
+import POJO.*;
+import DAO.*;
+import form.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -103,7 +107,21 @@ public class FormLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangNhapActionPerformed
-        // TODO add your handling code here:
+        String username = txtDangNhap.getText();
+        String password = new String(txtMatKhau.getPassword());
+        User us = new UserDAO().CheckLogin(username, password);
+        boolean isExisted = false;
+        if(us != null)
+        {
+            isExisted = true;
+            this.setVisible(false);
+            FormMainSystem main = new FormMainSystem();
+            main.setVisible(true);
+        }
+        if(isExisted == false)
+        {
+            JOptionPane.showMessageDialog(this, "Bạn đã đăng nhập thất bại! Vui lòng nhập lại username và password! ");
+        }
     }//GEN-LAST:event_btnDangNhapActionPerformed
 
     private void btnDangNhapKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnDangNhapKeyPressed
