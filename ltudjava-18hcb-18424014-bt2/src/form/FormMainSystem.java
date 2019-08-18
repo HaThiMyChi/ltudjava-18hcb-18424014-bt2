@@ -10,12 +10,14 @@ package form;
  * @author Ha Chi
  */
 public class FormMainSystem extends javax.swing.JFrame {
-
+    private final String user;
     /**
      * Creates new form FormMainSystem
+     * @param username
      */
-    public FormMainSystem() {
+    public FormMainSystem(String username) {
         initComponents();
+        user = username;
     }
 
     /**
@@ -214,6 +216,11 @@ public class FormMainSystem extends javax.swing.JFrame {
         btnThoat.setFocusPainted(false);
         btnThoat.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnThoat.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnThoat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThoatActionPerformed(evt);
+            }
+        });
 
         jDesktopPane2.setBackground(new java.awt.Color(255, 255, 255));
         jDesktopPane2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -258,13 +265,14 @@ public class FormMainSystem extends javax.swing.JFrame {
                 .addGap(18, 18, 18))
         );
 
-        pnThongTinChung.getAccessibleContext().setAccessibleName("Trang chủ"); // NOI18N
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnChangePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePasswordActionPerformed
-
+        FromChangePassword cp = new FromChangePassword(user);
+        jDesktopPane2.removeAll();
+        cp.setVisible(true);
+        jDesktopPane2.add(cp);
     }//GEN-LAST:event_btnChangePasswordActionPerformed
 
     private void btnDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangXuatActionPerformed
@@ -290,6 +298,11 @@ public class FormMainSystem extends javax.swing.JFrame {
     private void btnLopMonHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLopMonHocActionPerformed
         
     }//GEN-LAST:event_btnLopMonHocActionPerformed
+
+    private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_btnThoatActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
