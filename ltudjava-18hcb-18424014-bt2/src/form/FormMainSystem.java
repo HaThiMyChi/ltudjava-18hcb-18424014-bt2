@@ -10,9 +10,12 @@ package form;
  * @author Ha Chi
  */
 public class FormMainSystem extends javax.swing.JFrame {
+
     private final String user;
+
     /**
      * Creates new form FormMainSystem
+     *
      * @param username
      */
     public FormMainSystem(String username) {
@@ -284,11 +287,12 @@ public class FormMainSystem extends javax.swing.JFrame {
     }//GEN-LAST:event_btnXemDiemActionPerformed
 
     private void btnDanhSachLopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDanhSachLopActionPerformed
-       
+        FormStudent st = new FormStudent();
+        st.setVisible(true);
     }//GEN-LAST:event_btnDanhSachLopActionPerformed
 
     private void btnThoiKhoaBieuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoiKhoaBieuActionPerformed
-        
+
     }//GEN-LAST:event_btnThoiKhoaBieuActionPerformed
 
     private void btnDiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiemActionPerformed
@@ -296,7 +300,7 @@ public class FormMainSystem extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDiemActionPerformed
 
     private void btnLopMonHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLopMonHocActionPerformed
-        
+
     }//GEN-LAST:event_btnLopMonHocActionPerformed
 
     private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed

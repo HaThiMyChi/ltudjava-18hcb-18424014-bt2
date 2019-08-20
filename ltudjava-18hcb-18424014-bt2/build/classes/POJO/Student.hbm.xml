@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <!--
 DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
@@ -39,14 +38,28 @@ made subject to such option by the copyright holder.
 
 Contributor(s):
 -->
-<hibernate-configuration>
-  <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/qlsinhvien?characterEncoding=UTF-8</property>
-    <property name="hibernate.connection.username">root</property>
-    <mapping resource="POJO/User.hbm.xml"/>
-    <mapping resource="POJO/Student.hbm.xml"/>
-    <mapping resource="POJO/Class.hbm.xml"/>
-  </session-factory>
-</hibernate-configuration>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="POJO.Student" table="tblsinhvien">
+        <id name="studentid" type="string">
+            <column length="15" name="StudentID" not-null = "true"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="fullname" type="string">
+            <column length="50" name="Fullname"/>
+        </property>
+        <property name="sex" type="short">
+            <column length="50" name="Sex"/>
+        </property>
+        <property name="identitycard" type="string">
+            <column length="13" name="IdentityCard"/>
+        </property>
+        <property name="malop" type="string">
+            <column length="10" name="MaLop"/>
+        </property>
+    </class>
+</hibernate-mapping>
