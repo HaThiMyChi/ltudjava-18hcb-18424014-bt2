@@ -5,17 +5,38 @@
  */
 package form;
 
+import DAO.*;
+import java.io.File;
+import java.util.List;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import POJO.*;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Ha Chi
  */
 public class FormThoiKhoaBieu extends javax.swing.JFrame {
 
+    private final JFileChooser filesTKB;
+    private String filename;
+
     /**
      * Creates new form FormThoiKhoaBieu
      */
     public FormThoiKhoaBieu() {
         initComponents();
+        filesTKB = new JFileChooser();
+        filesTKB.setCurrentDirectory(new File("C:\\Users\\Ha Chi\\Desktop"));
+        filesTKB.setFileFilter(new FileNameExtensionFilter("File CSV", "csv"));
+        filesTKB.setMultiSelectionEnabled(true);
+        loadListLop();
+        String malop = cbbMonHoc.getItemAt(1);
+        loadThoiKhoaBieu(malop);
+        cbbMonHoc.removeItemAt(0);
+
     }
 
     /**
@@ -101,15 +122,90 @@ public class FormThoiKhoaBieu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public final void loadListLop() {
+        List<ClassObjects> lst = new ClassDAO().laythongtinlop();
+        cbbMonHoc.addItem("Xin mời bạn chọn lớp!");
+        for (int i = 0; i < lst.size(); i++) {
+            ClassObjects cl = lst.get(i);
+            cbbMonHoc.addItem(cl.getMalop());
+        }
+    }
+
+    public final void loadThoiKhoaBieu(String malop) {
+        List<ThoiKhoaBieu> lst = new ThoiKhoaBieuDAO().layThongTinTKBTheoMaLop(malop);
+        if (lst != null) {
+            DefaultTableModel model = (DefaultTableModel) tblThoiKhoaBieu.getModel();
+            model.setRowCount(0);
+            String[] columnsName = {"STT", "Mã Môn", "Tên Môn", "Phòng Học"};
+            model.setColumnIdentifiers(columnsName);
+            int i = 1;
+            for (ThoiKhoaBieu tkb : lst) {
+                Vector row = new Vector();
+                String number = Integer.toString(i);
+                row.add(number);
+                row.add(tkb.getMaMon());
+                MonHoc mh = new MonHocDAO().laythongtinmonhoctheoID(tkb.getMaMon());
+                row.add(mh.getTenMon());
+                row.add(tkb.getPhongHoc());
+                model.addRow(row);
+                i++;
+            }
+            tblThoiKhoaBieu.setModel(model);
+        }
+    }
+
+    public static String filename(String str, char sep, char ext) {
+        String fullpath = str;
+        int dot1 = fullpath.lastIndexOf(ext);
+        int sep1 = fullpath.lastIndexOf(sep);
+        return fullpath.substring(sep1 + 1, dot1);
+    }
+
     private void btnThoiKhoaBieuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoiKhoaBieuActionPerformed
-        // TODO add your handling code here:
-        
+        int returnvalue = filesTKB.showOpenDialog(this);
+        if (returnvalue == JFileChooser.APPROVE_OPTION) {
+            File[] files = filesTKB.getSelectedFiles();
+            for (File file : files) {
+                try {
+                    filename = file.toString();
+                    String fi = filename(filename, '\\', ' ');
+                    int hocky = Integer.parseInt(filename(filename, 'K', '_'));
+                    String namhoc = filename(filename, '_', '.');
+                    ClassObjects cl = new ClassObjects();
+                    cl.setMalop(fi);
+                    new ClassDAO().themlop(cl);
+                    List<String> lstimportdanhsach = new ThoiKhoaBieuDAO().layThongTinImportFileCSV(filename);
+                    int size = lstimportdanhsach.size();
+                    for (int i = 0; i < size; i++) {
+                        String[] str = lstimportdanhsach.get(i).split(",");
+                        ThoiKhoaBieu tkb = new ThoiKhoaBieu();
+                        tkb.setMaLop(fi);
+                        tkb.setMaMon(str[0]);
+                        MonHoc mh = new MonHoc();
+                        mh.setMaMon(str[0]);
+                        mh.setTenMon(str[1]);
+                        tkb.setHocky(hocky);
+                        tkb.setNamHoc(namhoc);
+                        tkb.setPhongHoc(str[2]);
+                        new MonHocDAO().themmonhoc(mh);
+                        new ThoiKhoaBieuDAO().themThoiKhoaBieu(tkb);
+                    }
+                    loadThoiKhoaBieu(fi);
+                    cbbMonHoc.removeAllItems();
+                    loadListLop();
+                    cbbMonHoc.removeItemAt(0);
+                    cbbMonHoc.setSelectedItem(fi);
+                } catch (Exception ex) {
+                    ex.getMessage();
+                }
+            }
+        }
     }//GEN-LAST:event_btnThoiKhoaBieuActionPerformed
 
     private void cbbMonHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbMonHocActionPerformed
         // TODO add your handling code here:
-        //        filename = cbbMonHoc.getSelectedItem() + ".csv";
-        //        LoadScheduled(filename);
+        filename = (String) cbbMonHoc.getSelectedItem();
+        loadThoiKhoaBieu(filename);
     }//GEN-LAST:event_cbbMonHocActionPerformed
 
     /**

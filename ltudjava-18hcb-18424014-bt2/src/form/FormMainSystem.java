@@ -292,7 +292,8 @@ public class FormMainSystem extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDanhSachLopActionPerformed
 
     private void btnThoiKhoaBieuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoiKhoaBieuActionPerformed
-
+        FormThoiKhoaBieu tkb = new FormThoiKhoaBieu();
+        tkb.setVisible(true);
     }//GEN-LAST:event_btnThoiKhoaBieuActionPerformed
 
     private void btnDiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiemActionPerformed

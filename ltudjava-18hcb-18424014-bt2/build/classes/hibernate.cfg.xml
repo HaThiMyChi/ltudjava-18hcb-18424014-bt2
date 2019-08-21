@@ -48,5 +48,7 @@ Contributor(s):
     <mapping resource="POJO/User.hbm.xml"/>
     <mapping resource="POJO/Student.hbm.xml"/>
     <mapping resource="POJO/Class.hbm.xml"/>
+    <mapping resource="POJO/ThoiKhoaBieu.hbm.xml"/>
+    <mapping resource="POJO/MonHoc.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
