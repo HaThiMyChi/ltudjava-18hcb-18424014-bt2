@@ -54,7 +54,12 @@ public class FormThoiKhoaBieu extends javax.swing.JFrame {
         tblThoiKhoaBieu = new javax.swing.JTable();
         cbbMonHoc = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         pnThoiKhoaBieu.setBorder(javax.swing.BorderFactory.createTitledBorder("Thời Khóa Biểu"));
 
@@ -189,6 +194,12 @@ public class FormThoiKhoaBieu extends javax.swing.JFrame {
                         tkb.setPhongHoc(str[2]);
                         new MonHocDAO().themmonhoc(mh);
                         new ThoiKhoaBieuDAO().themThoiKhoaBieu(tkb);
+                        List<Student> lst = new StudentDAO().laythongtinsinhvien(fi);
+                        int size1 = lst.size();
+                        for(int j = 0; j < size1; j++)
+                        {
+                            
+                        }
                     }
                     loadThoiKhoaBieu(fi);
                     cbbMonHoc.removeAllItems();
@@ -207,6 +218,11 @@ public class FormThoiKhoaBieu extends javax.swing.JFrame {
         filename = (String) cbbMonHoc.getSelectedItem();
         loadThoiKhoaBieu(filename);
     }//GEN-LAST:event_cbbMonHocActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your
+        this.dispose();
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments

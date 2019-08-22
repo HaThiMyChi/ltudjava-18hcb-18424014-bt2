@@ -5,17 +5,39 @@
  */
 package form;
 
+import DAO.*;
+import POJO.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import java.util.Vector;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Ha Chi
  */
 public class FormBangDiem extends javax.swing.JFrame {
 
+    private final JFileChooser filestudyResult;
+    private String filename;
+
     /**
      * Creates new form FormBangDiem
      */
     public FormBangDiem() {
         initComponents();
+        filestudyResult = new JFileChooser();
+        filestudyResult.setCurrentDirectory(new File("C:\\Users\\Ha Chi\\Desktop"));
+        filestudyResult.setFileFilter(new FileNameExtensionFilter("File CSV", "csv"));
+        filestudyResult.setMultiSelectionEnabled(true);
+        LoadLopMonHoc();
+        String malop = cbxLop.getItemAt(0);
+        String[] ma = malop.split("-");
+        LoadDiemSinhVien(ma[0], ma[1]);
     }
 
     /**
@@ -30,19 +52,19 @@ public class FormBangDiem extends javax.swing.JFrame {
         pnThongTinDiem1 = new javax.swing.JPanel();
         lblthongtin1 = new javax.swing.JLabel();
         lblMSSV1 = new javax.swing.JLabel();
-        txtMSSV1 = new javax.swing.JTextField();
+        txtmaSSV = new javax.swing.JTextField();
         lblHoTen1 = new javax.swing.JLabel();
-        txtHoten1 = new javax.swing.JTextField();
+        txtHoTen = new javax.swing.JTextField();
         lblDiemGiuaKy1 = new javax.swing.JLabel();
-        txtDiemGiuaKy1 = new javax.swing.JTextField();
+        txtDiemGK = new javax.swing.JTextField();
         lblDiemCuoiKy1 = new javax.swing.JLabel();
-        txtDiemCuoiKy1 = new javax.swing.JTextField();
+        txtDiemCK = new javax.swing.JTextField();
         lblDiemKhac1 = new javax.swing.JLabel();
-        txtDiemKhac1 = new javax.swing.JTextField();
+        txtDiemKhac = new javax.swing.JTextField();
         lblDiemTong1 = new javax.swing.JLabel();
-        txtDiemTong1 = new javax.swing.JTextField();
+        txtDiemTong = new javax.swing.JTextField();
         btnEdit = new javax.swing.JButton();
-        btnCancel = new javax.swing.JButton();
+        btnHuy = new javax.swing.JButton();
         pnKetQuaDiem = new javax.swing.JPanel();
         spDanhSachDiem = new javax.swing.JScrollPane();
         tblDanhSachDiem = new javax.swing.JTable();
@@ -57,7 +79,7 @@ public class FormBangDiem extends javax.swing.JFrame {
         txtTileDau = new javax.swing.JTextField();
         txtTiLeRot = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         pnThongTinDiem1.setBorder(javax.swing.BorderFactory.createTitledBorder("Thông Tin Chi Tiết"));
 
@@ -72,14 +94,14 @@ public class FormBangDiem extends javax.swing.JFrame {
         lblMSSV1.setText("Mã số sinh viên:");
         lblMSSV1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
-        txtMSSV1.setEditable(false);
+        txtmaSSV.setEditable(false);
 
         lblHoTen1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lblHoTen1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblHoTen1.setText("Họ tên sinh viên:");
         lblHoTen1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
-        txtHoten1.setEditable(false);
+        txtHoTen.setEditable(false);
 
         lblDiemGiuaKy1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lblDiemGiuaKy1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -109,7 +131,12 @@ public class FormBangDiem extends javax.swing.JFrame {
             }
         });
 
-        btnCancel.setText("Cancel");
+        btnHuy.setText("Hủy");
+        btnHuy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHuyActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnThongTinDiem1Layout = new javax.swing.GroupLayout(pnThongTinDiem1);
         pnThongTinDiem1.setLayout(pnThongTinDiem1Layout);
@@ -131,17 +158,17 @@ public class FormBangDiem extends javax.swing.JFrame {
                             .addComponent(lblMSSV1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pnThongTinDiem1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtMSSV1)
-                            .addComponent(txtHoten1)
-                            .addComponent(txtDiemGiuaKy1)
-                            .addComponent(txtDiemCuoiKy1)
-                            .addComponent(txtDiemKhac1)
-                            .addComponent(txtDiemTong1, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)))
+                            .addComponent(txtmaSSV)
+                            .addComponent(txtHoTen)
+                            .addComponent(txtDiemGK)
+                            .addComponent(txtDiemCK)
+                            .addComponent(txtDiemKhac)
+                            .addComponent(txtDiemTong, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)))
                     .addGroup(pnThongTinDiem1Layout.createSequentialGroup()
                         .addGap(110, 110, 110)
                         .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(57, 57, 57)
-                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnHuy, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnThongTinDiem1Layout.setVerticalGroup(
@@ -152,35 +179,35 @@ public class FormBangDiem extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnThongTinDiem1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMSSV1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtMSSV1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtmaSSV, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pnThongTinDiem1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pnThongTinDiem1Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addComponent(lblHoTen1, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
-                    .addComponent(txtHoten1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtHoTen, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pnThongTinDiem1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pnThongTinDiem1Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addComponent(lblDiemGiuaKy1, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
-                    .addComponent(txtDiemGiuaKy1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDiemGK, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pnThongTinDiem1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDiemCuoiKy1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDiemCuoiKy1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDiemCK, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pnThongTinDiem1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDiemKhac1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDiemKhac1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDiemKhac, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pnThongTinDiem1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDiemTong1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDiemTong1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDiemTong, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addGroup(pnThongTinDiem1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnHuy, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -210,11 +237,6 @@ public class FormBangDiem extends javax.swing.JFrame {
         });
 
         cbxLop.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        cbxLop.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cbxLopItemStateChanged(evt);
-            }
-        });
         cbxLop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxLopActionPerformed(evt);
@@ -336,108 +358,186 @@ public class FormBangDiem extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        // TODO add your handling code here:
-       
-    }//GEN-LAST:event_btnEditActionPerformed
-
-    private void tblDanhSachDiemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDanhSachDiemMouseClicked
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_tblDanhSachDiemMouseClicked
-
-    private void btnBangDiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBangDiemActionPerformed
-        
-    }//GEN-LAST:event_btnBangDiemActionPerformed
-
-    private void cbxLopItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxLopItemStateChanged
-        
-    }//GEN-LAST:event_cbxLopItemStateChanged
-
-    private void cbxLopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxLopActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxLopActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormBangDiem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormBangDiem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormBangDiem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormBangDiem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormBangDiem().setVisible(true);
-            }
+    public void LoadLopMonHoc() {
+        List<ThoiKhoaBieu> lst = new ThoiKhoaBieuDAO().layThongTinThoiKhoaBieu();
+        lst.forEach((lop) -> {
+            cbxLop.addItem(lop.getMaLop() + '-' + lop.getMaMon());
         });
     }
 
+    public void LoadDiemSinhVien(String malop, String mamon) {
+        List<BangDiem> lst = new BangDiemDAO().layTheoMaMonAndMaLop(malop, mamon);
+        if (lst != null) {
+            DefaultTableModel model = (DefaultTableModel) tblDanhSachDiem.getModel();
+            model.setRowCount(0);
+            String[] columnsName = {"STT", "MSSV", "Họ tên", "Điểm giữa kỳ", "Điểm cuối kỳ", "Điểm khác", "Điểm tổng kết", "Kết quả"};
+            model.setColumnIdentifiers(columnsName);
+            int i = 1;
+            for (BangDiem sr : lst) {
+                Vector row = new Vector();
+                String number = Integer.toString(i);
+                row.add(number);
+                row.add(sr.getStudentID());
+                Student st = new StudentDAO().laythongtinsinhvientheoID(sr.getStudentID());
+                row.add(st.getFullname());
+                row.add(sr.getDiemGK());
+                row.add(sr.getDiemCK());
+                row.add(sr.getDiemKhac());
+                row.add(sr.getDiemTong());
+                String KQ;
+                if (sr.getDiemTong() < 5) {
+                    KQ = "Rớt";
+                } else {
+                    KQ = "Đậu";
+                }
+                row.add(KQ);
+                model.addRow(row);
+                i++;
+            }
+            tblDanhSachDiem.setModel(model);
+            int Dau = 0, Rot = 0, TileDau, TileRot;
+            int size = lst.size();
+            for (int j = 0; j < size; j++) {
+                if (lst.get(j).getDiemTong() >= 5) {
+                    Dau = Dau + 1;
+                } else {
+                    Rot = Rot + 1;
+                }
+            }
+            txtDau.setText(Integer.toString(Dau));
+            txtRot.setText(Integer.toString(Rot));
+            int tong = Dau + Rot;
+            TileDau = ((Dau * 100) / tong);
+            TileRot = ((Rot * 100) / tong);
+            txtTileDau.setText(Integer.toString(TileDau) + "%");
+            txtTiLeRot.setText(Integer.toString(TileRot) + "%");
+        }
+
+    }
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        filename = (String) cbxLop.getSelectedItem();
+        String[] file = filename.split("-");
+        String mssv = txtmaSSV.getText();
+        String Hoten = txtHoTen.getText();
+        float DiemGK = Float.parseFloat(txtDiemGK.getText());
+        float DiemCK = Float.parseFloat(txtDiemCK.getText());
+        float DiemKhac = Float.parseFloat(txtDiemKhac.getText());
+        float DiemTong = Float.parseFloat(txtDiemTong.getText());
+        BangDiem bd = new BangDiemDAO().layTheoMaLopMaMonAndStudentID(file[0], file[1], mssv);
+        if (bd != null) {
+            bd.setDiemGK(DiemGK);
+            bd.setDiemCK(DiemCK);
+            bd.setDiemKhac(DiemKhac);
+            bd.setDiemTong(DiemTong);
+            boolean kq = new BangDiemDAO().updateBangDiem(bd);
+            if (kq == true) {
+                JOptionPane.showMessageDialog(this, "Bạn đã cập nhật thành công");
+            } else {
+                JOptionPane.showMessageDialog(this, "Bạn đã cập nhật không thành công");
+            }
+        }
+        LoadDiemSinhVien(file[0], file[1]);
+    }//GEN-LAST:event_btnEditActionPerformed
+
+    private void tblDanhSachDiemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDanhSachDiemMouseClicked
+        DefaultTableModel model = (DefaultTableModel) tblDanhSachDiem.getModel();
+        int selectedRowIndex = tblDanhSachDiem.getSelectedRow();
+        txtmaSSV.setEditable(false);
+        txtmaSSV.setText(model.getValueAt(selectedRowIndex, 1).toString());
+        txtHoTen.setText(model.getValueAt(selectedRowIndex, 2).toString());
+        txtDiemGK.setText(model.getValueAt(selectedRowIndex, 3).toString());
+        txtDiemCK.setText(model.getValueAt(selectedRowIndex, 4).toString());
+        txtDiemKhac.setText(model.getValueAt(selectedRowIndex, 5).toString());
+        txtDiemTong.setText(model.getValueAt(selectedRowIndex, 6).toString());
+    }//GEN-LAST:event_tblDanhSachDiemMouseClicked
+
+    public static String filename(String str, char sep, char ext) {
+        String fullpath = str;
+        int dot1 = fullpath.lastIndexOf(ext);
+        int sep1 = fullpath.lastIndexOf(sep);
+        return fullpath.substring(sep1 + 1, dot1);
+    }
+
+    private void btnBangDiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBangDiemActionPerformed
+        int returnvalue = filestudyResult.showOpenDialog(this);
+        if (returnvalue == JFileChooser.APPROVE_OPTION) {
+            File[] files = filestudyResult.getSelectedFiles();
+            for (File file : files) {
+                try {
+                    filename = file.toString();
+                    String fi = filename(filename, '\\', '-');
+                    String mh = filename(filename, '-', '.');
+                    List<String> listImportDS = new BangDiemDAO().layThongTinImportFileCSV(filename);
+                    int size = listImportDS.size();
+                    for (int i = 0; i < size; i++) {
+                        String[] str = listImportDS.get(i).split(",");
+                        BangDiem bd = new BangDiem();
+                        bd.setMaLop(fi);
+                        bd.setMaMon(mh);
+                        bd.setStudentID(str[0]);
+                        bd.setDiemGK(Float.parseFloat(str[2]));
+                        bd.setDiemCK(Float.parseFloat(str[3]));
+                        bd.setDiemKhac(Float.parseFloat(str[4]));
+                        bd.setDiemTong(Float.parseFloat(str[5]));
+                        new BangDiemDAO().insertBangDiem(bd);
+                    }
+                    LoadDiemSinhVien(fi, mh);
+                    cbxLop.removeAllItems();
+                    LoadLopMonHoc();
+                    cbxLop.removeItemAt(0);
+                    cbxLop.setSelectedItem(fi + "-" + mh);
+                } catch (IOException | NumberFormatException ex) {
+                    ex.getMessage();
+                }
+            }
+        }
+    }//GEN-LAST:event_btnBangDiemActionPerformed
+
+    private void cbxLopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxLopActionPerformed
+        filename = (String) cbxLop.getSelectedItem();
+        String[] ma = filename.split("-");
+        LoadDiemSinhVien(ma[0], ma[1]);
+    }//GEN-LAST:event_cbxLopActionPerformed
+
+    private void btnHuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyActionPerformed
+       txtmaSSV.setText("");
+       txtHoTen.setText("");
+       txtDiemGK.setText("");
+       txtDiemCK.setText("");
+       txtDiemKhac.setText("");
+       txtDiemTong.setText("");
+    }//GEN-LAST:event_btnHuyActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBangDiem;
-    private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnHuy;
-    private javax.swing.JButton btnLuu;
     private javax.swing.JComboBox<String> cbxLop;
     private javax.swing.JLabel lblDau;
-    private javax.swing.JLabel lblDiemCuoiKy;
     private javax.swing.JLabel lblDiemCuoiKy1;
-    private javax.swing.JLabel lblDiemGiuaKy;
     private javax.swing.JLabel lblDiemGiuaKy1;
-    private javax.swing.JLabel lblDiemKhac;
     private javax.swing.JLabel lblDiemKhac1;
-    private javax.swing.JLabel lblDiemTong;
     private javax.swing.JLabel lblDiemTong1;
-    private javax.swing.JLabel lblHoTen;
     private javax.swing.JLabel lblHoTen1;
-    private javax.swing.JLabel lblMSSV;
     private javax.swing.JLabel lblMSSV1;
     private javax.swing.JLabel lblRot;
     private javax.swing.JLabel lblTiLe;
     private javax.swing.JLabel lblTiLe1;
-    private javax.swing.JLabel lblthongtin;
     private javax.swing.JLabel lblthongtin1;
     private javax.swing.JPanel pnKetQuaDiem;
-    private javax.swing.JPanel pnThongTinDiem;
     private javax.swing.JPanel pnThongTinDiem1;
     private javax.swing.JScrollPane spDanhSachDiem;
     private javax.swing.JTable tblDanhSachDiem;
     private javax.swing.JTextField txtDau;
-    private javax.swing.JTextField txtDiemCuoiKy;
-    private javax.swing.JTextField txtDiemCuoiKy1;
-    private javax.swing.JTextField txtDiemGiuaKy;
-    private javax.swing.JTextField txtDiemGiuaKy1;
+    private javax.swing.JTextField txtDiemCK;
+    private javax.swing.JTextField txtDiemGK;
     private javax.swing.JTextField txtDiemKhac;
-    private javax.swing.JTextField txtDiemKhac1;
     private javax.swing.JTextField txtDiemTong;
-    private javax.swing.JTextField txtDiemTong1;
-    private javax.swing.JTextField txtHoten;
-    private javax.swing.JTextField txtHoten1;
-    private javax.swing.JTextField txtMSSV;
-    private javax.swing.JTextField txtMSSV1;
+    private javax.swing.JTextField txtHoTen;
     private javax.swing.JTextField txtRot;
     private javax.swing.JTextField txtTiLeRot;
     private javax.swing.JTextField txtTileDau;
+    private javax.swing.JTextField txtmaSSV;
     // End of variables declaration//GEN-END:variables
 }

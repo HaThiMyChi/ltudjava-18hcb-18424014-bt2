@@ -113,7 +113,7 @@ public class FormStudent extends javax.swing.JFrame {
         btnDanhSachLop = new javax.swing.JButton();
         cbxLop = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         pnChitietSinhVien.setBorder(javax.swing.BorderFactory.createTitledBorder("Chi Tiết Sinh Viên"));
         pnChitietSinhVien.setName("Chi Tiết Sinh Viên"); // NOI18N

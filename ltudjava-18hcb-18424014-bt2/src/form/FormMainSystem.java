@@ -5,6 +5,9 @@
  */
 package form;
 
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
+
 /**
  *
  * @author Ha Chi
@@ -68,7 +71,6 @@ public class FormMainSystem extends javax.swing.JFrame {
 
         btnChangePassword.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnChangePassword.setText("Đổi Mật Khẩu");
-        btnChangePassword.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnChangePassword.setFocusPainted(false);
         btnChangePassword.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnChangePassword.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -80,7 +82,6 @@ public class FormMainSystem extends javax.swing.JFrame {
 
         btnDangXuat.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnDangXuat.setText("Đăng Xuất");
-        btnDangXuat.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnDangXuat.setFocusPainted(false);
         btnDangXuat.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnDangXuat.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -92,7 +93,6 @@ public class FormMainSystem extends javax.swing.JFrame {
 
         btnXemDiem.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnXemDiem.setText("Xem Điểm Sinh Viên");
-        btnXemDiem.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnXemDiem.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnXemDiem.setOpaque(false);
         btnXemDiem.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -104,7 +104,6 @@ public class FormMainSystem extends javax.swing.JFrame {
 
         btnDangNhap.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnDangNhap.setText("Đăng Nhập");
-        btnDangNhap.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnDangNhap.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnDangNhap.setOpaque(false);
         btnDangNhap.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -139,7 +138,6 @@ public class FormMainSystem extends javax.swing.JFrame {
 
         btnDanhSachLop.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnDanhSachLop.setText("Danh Sách Lớp");
-        btnDanhSachLop.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnDanhSachLop.setFocusPainted(false);
         btnDanhSachLop.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnDanhSachLop.setMaximumSize(new java.awt.Dimension(70, 75));
@@ -153,7 +151,6 @@ public class FormMainSystem extends javax.swing.JFrame {
 
         btnThoiKhoaBieu.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnThoiKhoaBieu.setText("Thời Khóa Biểu");
-        btnThoiKhoaBieu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnThoiKhoaBieu.setFocusPainted(false);
         btnThoiKhoaBieu.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnThoiKhoaBieu.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -165,7 +162,6 @@ public class FormMainSystem extends javax.swing.JFrame {
 
         btnDiem.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnDiem.setText("Điểm");
-        btnDiem.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnDiem.setFocusPainted(false);
         btnDiem.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnDiem.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -177,7 +173,6 @@ public class FormMainSystem extends javax.swing.JFrame {
 
         btnLopMonHoc.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnLopMonHoc.setText("Danh Sách Lớp Theo Môn Học");
-        btnLopMonHoc.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnLopMonHoc.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnLopMonHoc.setOpaque(false);
         btnLopMonHoc.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -215,7 +210,6 @@ public class FormMainSystem extends javax.swing.JFrame {
 
         btnThoat.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnThoat.setText("Thoát");
-        btnThoat.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnThoat.setFocusPainted(false);
         btnThoat.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnThoat.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -297,7 +291,8 @@ public class FormMainSystem extends javax.swing.JFrame {
     }//GEN-LAST:event_btnThoiKhoaBieuActionPerformed
 
     private void btnDiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiemActionPerformed
-
+        FormBangDiem bangDiem = new FormBangDiem();
+        bangDiem.setVisible(true);
     }//GEN-LAST:event_btnDiemActionPerformed
 
     private void btnLopMonHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLopMonHocActionPerformed
