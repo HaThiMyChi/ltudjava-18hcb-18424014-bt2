@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <!--
 DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
@@ -39,18 +38,25 @@ made subject to such option by the copyright holder.
 
 Contributor(s):
 -->
-<hibernate-configuration>
-  <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/qlsinhvien?characterEncoding=UTF-8</property>
-    <property name="hibernate.connection.username">root</property>
-    <mapping resource="POJO/User.hbm.xml"/>
-    <mapping resource="POJO/Student.hbm.xml"/>
-    <mapping resource="POJO/Class.hbm.xml"/>
-    <mapping resource="POJO/ThoiKhoaBieu.hbm.xml"/>
-    <mapping resource="POJO/MonHoc.hbm.xml"/>
-    <mapping resource="POJO/BangDiem.hbm.xml"/>
-    <mapping resource="POJO/LopMonHoc.hbm.xml"/>
-  </session-factory>
-</hibernate-configuration>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="POJO.LopMonHoc" table="tbllopmonhoc">
+        <id name="maLop" type="string">
+            <column length="10" name="MaLop"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="maMon" type="string">
+            <column length="20" name="MaMon"/>
+        </property>
+        <property name="studentID" type="string">
+            <column length="15" name="StudentID"/>
+        </property>
+        <property name="status" type="int">
+            <column length="11" name="Status"/>
+        </property>
+    </class>
+</hibernate-mapping>

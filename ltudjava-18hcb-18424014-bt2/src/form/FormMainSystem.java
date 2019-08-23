@@ -13,7 +13,7 @@ import java.awt.event.WindowEvent;
  * @author Ha Chi
  */
 public class FormMainSystem extends javax.swing.JFrame {
-
+    
     private final String user;
 
     /**
@@ -296,7 +296,8 @@ public class FormMainSystem extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDiemActionPerformed
 
     private void btnLopMonHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLopMonHocActionPerformed
-
+        FormDangKyMonHoc dkmh = new FormDangKyMonHoc();
+        dkmh.setVisible(true);
     }//GEN-LAST:event_btnLopMonHocActionPerformed
 
     private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed

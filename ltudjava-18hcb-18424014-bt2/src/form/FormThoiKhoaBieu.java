@@ -198,7 +198,12 @@ public class FormThoiKhoaBieu extends javax.swing.JFrame {
                         int size1 = lst.size();
                         for(int j = 0; j < size1; j++)
                         {
-                            
+                            LopMonHoc lmh = new LopMonHoc();
+                            lmh.setMaLop(fi);
+                            lmh.setMaMon(str[0]);
+                            lmh.setStudentID(lst.get(j).getStudentid());
+                            lmh.setStatus(0);
+                            new LopMonHocDAO().Insert(lmh);
                         }
                     }
                     loadThoiKhoaBieu(fi);

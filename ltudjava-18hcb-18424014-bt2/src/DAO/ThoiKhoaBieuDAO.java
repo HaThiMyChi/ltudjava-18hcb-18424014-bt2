@@ -76,7 +76,7 @@ public class ThoiKhoaBieuDAO {
         try {
             String hql = "from ThoiKhoaBieu where MaMon = :maMon";
             Query query = session.createQuery(hql);
-            query.setParameter("mamon", maMon);
+            query.setParameter("maMon", maMon);
             list = query.list();
         }
         catch(Exception ex)

@@ -33,6 +33,27 @@ public class MonHocDAO {
         return list;
     }
     
+    public MonHoc layThongTinMonHoctheotenmonhoc(String tenmon){
+        MonHoc mh = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            String hql = "from MonHoc where TenMon = :tenmon";
+            Query query = session.createQuery(hql);
+            query.setParameter("tenmon", tenmon);
+            List<MonHoc> list = query.list();
+            int size = list.size();
+            for(int i = 0; i < size; i++)
+            {
+                mh = list.get(i);
+            }
+        } catch(Exception e) {
+            e.getMessage();
+        } finally {
+            session.close();
+        }
+        return mh;
+    }
+    
     public MonHoc laythongtinmonhoctheoID(String ID)
     {
         MonHoc mh = null;
