@@ -44,23 +44,19 @@ Contributor(s):
   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="POJO.BangDiem" table="tbldiem">
+    <class name="POJO.PhucKhaoDiem" table="tblphuckhaodiem">
         <composite-id>
-            <key-property name="MaLop" column="MaLop" type="string" length="10"></key-property>
-            <key-property name="MaMon" column="MaMon" type="string" length="10"></key-property>
-            <key-property name="StudentID" column="StudentID" type="string" length="10"></key-property>
+            <key-property name="studentid" column="StudentID" type="string" length="10"></key-property>
+            <key-property name="mamon" column="MaMon" type="string" length="20"></key-property>
         </composite-id>
-        <property name="DiemGK" type="float">
-            <column length="11" name="DiemGK"/>
+        <property name="cotdiemcanphuckhao" type="string">
+            <column length="20" name="cotdiemcanphuckhao"/>
         </property>
-        <property name="DiemCK" type="float">
-            <column length="11" name="DiemCK"/>
+        <property ame="diemmongmuon" type="float">
+            <column length="10" name="DiemMongMuon"></column>
         </property>
-        <property name="DiemKhac" type="float">
-            <column length="11" name="DiemKhac"/>
-        </property>
-        <property name="DiemTong" type="float">
-            <column length="11" name="DiemTong"/>
+        <property name="lido" type="string">
+            <column length="255" name="LiDo"/>
         </property>
     </class>
 </hibernate-mapping>

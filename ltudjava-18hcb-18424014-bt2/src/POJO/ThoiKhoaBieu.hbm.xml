@@ -45,19 +45,12 @@ Contributor(s):
 
 <hibernate-mapping>
     <class name="POJO.ThoiKhoaBieu" table="tblthoikhoabieu">
-        <id name="MaLop" type="string">
-            <column length="10" name="MaLop"/>
-            <generator class="assigned"/>
-        </id>
-        <property name="MaMon" type="string">
-            <column length="20" name="MaMon"/>
-        </property>
-        <property name="Hocky" type="int">
-            <column length="20" name="Hocky"/>
-        </property>
-        <property name="NamHoc" type="string">
-            <column length="20" name="NamHoc"/>
-        </property>
+        <composite-id>
+            <key-property name="MaLop" column="MaLop" type="string" length="10"></key-property>
+            <key-property name="MaMon" column="MaMon" type="string" length="20"></key-property>
+            <key-property name="Hocky" column="Hocky" type="int" length="20"></key-property>
+            <key-property name="NamHoc" column="NamHoc" type="string" length="20"></key-property>
+        </composite-id>
         <property name="PhongHoc" type="string">
             <column length="10" name="PhongHoc"/>
         </property>

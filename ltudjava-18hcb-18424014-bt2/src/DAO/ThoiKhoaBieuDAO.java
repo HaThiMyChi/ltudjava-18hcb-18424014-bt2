@@ -70,6 +70,27 @@ public class ThoiKhoaBieuDAO {
         return list;
     }
     
+    public List<ThoiKhoaBieu> layThongTinTKBTheoHocKyVaNamHoc(int HocKy, String NamHoc) {
+        List<ThoiKhoaBieu> list = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            String hql = "from ThoiKhoaBieu where Hocky = :hocky and NamHoc = :namhoc";
+            Query query = session.createQuery(hql);
+            query.setParameter("hocky", HocKy);
+            query.setParameter("namhoc", NamHoc);
+            list = query.list();
+        }
+        catch(Exception ex)
+        {
+            ex.getMessage();
+        }
+        finally
+        {
+            session.close();
+        }
+        return list;
+    }
+    
     public List<ThoiKhoaBieu> layThongTinTKBTheoMaMon(String maMon) {
         List<ThoiKhoaBieu> list = null;
         Session session = HibernateUtil.getSessionFactory().openSession();

@@ -45,16 +45,11 @@ Contributor(s):
 
 <hibernate-mapping>
     <class name="POJO.LopMonHoc" table="tbllopmonhoc">
-        <id name="maLop" type="string">
-            <column length="10" name="MaLop"/>
-            <generator class="assigned"/>
-        </id>
-        <property name="maMon" type="string">
-            <column length="20" name="MaMon"/>
-        </property>
-        <property name="studentID" type="string">
-            <column length="15" name="StudentID"/>
-        </property>
+        <composite-id>
+            <key-property name="maLop" column="MaLop" type="string" length="10"></key-property>
+            <key-property name="maMon" column="MaMon" type="string" length="20"></key-property>
+            <key-property name="studentID" column="StudentID" type="string" length="15"></key-property>
+        </composite-id>
         <property name="status" type="int">
             <column length="11" name="Status"/>
         </property>

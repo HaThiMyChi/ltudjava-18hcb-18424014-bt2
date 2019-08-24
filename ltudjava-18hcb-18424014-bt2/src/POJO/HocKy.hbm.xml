@@ -44,23 +44,13 @@ Contributor(s):
   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="POJO.BangDiem" table="tbldiem">
-        <composite-id>
-            <key-property name="MaLop" column="MaLop" type="string" length="10"></key-property>
-            <key-property name="MaMon" column="MaMon" type="string" length="10"></key-property>
-            <key-property name="StudentID" column="StudentID" type="string" length="10"></key-property>
-        </composite-id>
-        <property name="DiemGK" type="float">
-            <column length="11" name="DiemGK"/>
-        </property>
-        <property name="DiemCK" type="float">
-            <column length="11" name="DiemCK"/>
-        </property>
-        <property name="DiemKhac" type="float">
-            <column length="11" name="DiemKhac"/>
-        </property>
-        <property name="DiemTong" type="float">
-            <column length="11" name="DiemTong"/>
+    <class name="POJO.HocKy" table="tblhocky">
+        <id name="mahocky" type="int">
+            <column length="11" name="mahocky" not-null = "true"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="tenhocky" type="string">
+            <column length="10" name="tenhocky"/>
         </property>
     </class>
 </hibernate-mapping>
