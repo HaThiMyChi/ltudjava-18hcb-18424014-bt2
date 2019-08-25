@@ -95,7 +95,7 @@ public class FormDangKyMonHoc extends javax.swing.JFrame {
         lblMonHoc = new javax.swing.JLabel();
         cbxMonHoc = new javax.swing.JComboBox<>();
         btnSave = new javax.swing.JButton();
-        btnHuy = new javax.swing.JButton();
+        btnNhapLai = new javax.swing.JButton();
         lblHocKy = new javax.swing.JLabel();
         radioChinh = new javax.swing.JRadioButton();
         radioTraNo = new javax.swing.JRadioButton();
@@ -146,7 +146,7 @@ public class FormDangKyMonHoc extends javax.swing.JFrame {
         });
 
         btnSave.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnSave.setText("Save");
+        btnSave.setText("Lưu");
         btnSave.setBorderPainted(false);
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,12 +154,12 @@ public class FormDangKyMonHoc extends javax.swing.JFrame {
             }
         });
 
-        btnHuy.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnHuy.setText("Cancel");
-        btnHuy.setBorderPainted(false);
-        btnHuy.addActionListener(new java.awt.event.ActionListener() {
+        btnNhapLai.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnNhapLai.setText("Nhập lại");
+        btnNhapLai.setBorderPainted(false);
+        btnNhapLai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHuyActionPerformed(evt);
+                btnNhapLaiActionPerformed(evt);
             }
         });
 
@@ -231,7 +231,7 @@ public class FormDangKyMonHoc extends javax.swing.JFrame {
                         .addGap(89, 89, 89)
                         .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(68, 68, 68)
-                        .addComponent(btnHuy, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnNhapLai, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnThongTinLayout.setVerticalGroup(
@@ -267,7 +267,7 @@ public class FormDangKyMonHoc extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(pnThongTinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnHuy, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnNhapLai, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(172, Short.MAX_VALUE))
         );
 
@@ -344,7 +344,7 @@ public class FormDangKyMonHoc extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnThongTin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pnDanhSach, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 26, Short.MAX_VALUE))
+                .addGap(0, 20, Short.MAX_VALUE))
         );
 
         pack();
@@ -390,11 +390,11 @@ public class FormDangKyMonHoc extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnSaveActionPerformed
 
-    private void btnHuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyActionPerformed
+    private void btnNhapLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNhapLaiActionPerformed
         // TODO add your handling code here:
         txtMSSV.setText("");
         txtHoTen.setText("");
-    }//GEN-LAST:event_btnHuyActionPerformed
+    }//GEN-LAST:event_btnNhapLaiActionPerformed
 
     private void cbxLopMonHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxLopMonHocActionPerformed
         String lopmonhoc = (String) cbxLopMonHoc.getSelectedItem();
@@ -432,7 +432,7 @@ public class FormDangKyMonHoc extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnHuy;
+    private javax.swing.JButton btnNhapLai;
     private javax.swing.JButton btnSave;
     private javax.swing.JComboBox<String> cbxLop;
     private javax.swing.JComboBox<String> cbxLopMonHoc;

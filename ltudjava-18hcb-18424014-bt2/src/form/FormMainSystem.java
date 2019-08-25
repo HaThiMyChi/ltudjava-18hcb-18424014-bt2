@@ -23,7 +23,16 @@ public class FormMainSystem extends javax.swing.JFrame {
      */
     public FormMainSystem(String username) {
         initComponents();
+        btnDangNhap.setVisible(false);
         user = username;
+        if (username.equals("giaovu")) {
+            pnThongTinChung.setVisible(true);
+            pnChucNang.setVisible(true);
+            btnXemDiem.setVisible(false);
+        } else {
+            pnThongTinChung.setVisible(true);
+            pnChucNang.setVisible(false);
+        }
     }
 
     /**
@@ -36,18 +45,19 @@ public class FormMainSystem extends javax.swing.JFrame {
     private void initComponents() {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
-        pnThongTinChung = new javax.swing.JPanel();
-        btnChangePassword = new javax.swing.JButton();
-        btnDangXuat = new javax.swing.JButton();
-        btnXemDiem = new javax.swing.JButton();
-        btnDangNhap = new javax.swing.JButton();
         pnChucNang = new javax.swing.JPanel();
         btnDanhSachLop = new javax.swing.JButton();
         btnThoiKhoaBieu = new javax.swing.JButton();
         btnDiem = new javax.swing.JButton();
         btnLopMonHoc = new javax.swing.JButton();
+        btnDanhSachPhucKhao = new javax.swing.JButton();
         btnThoat = new javax.swing.JButton();
-        jDesktopPane2 = new javax.swing.JDesktopPane();
+        jDesktopPanelQLSV = new javax.swing.JDesktopPane();
+        pnThongTinChung = new javax.swing.JPanel();
+        btnChangePassword = new javax.swing.JButton();
+        btnDangXuat = new javax.swing.JButton();
+        btnXemDiem = new javax.swing.JButton();
+        btnDangNhap = new javax.swing.JButton();
 
         jDesktopPane1.setBackground(new java.awt.Color(255, 255, 255));
         jDesktopPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -64,75 +74,8 @@ public class FormMainSystem extends javax.swing.JFrame {
             .addGap(0, 267, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        pnThongTinChung.setBorder(javax.swing.BorderFactory.createTitledBorder("Trang chủ"));
-        pnThongTinChung.setName(""); // NOI18N
-
-        btnChangePassword.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnChangePassword.setText("Đổi Mật Khẩu");
-        btnChangePassword.setFocusPainted(false);
-        btnChangePassword.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnChangePassword.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnChangePassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnChangePasswordActionPerformed(evt);
-            }
-        });
-
-        btnDangXuat.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnDangXuat.setText("Đăng Xuất");
-        btnDangXuat.setFocusPainted(false);
-        btnDangXuat.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnDangXuat.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnDangXuat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDangXuatActionPerformed(evt);
-            }
-        });
-
-        btnXemDiem.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnXemDiem.setText("Xem Điểm Sinh Viên");
-        btnXemDiem.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnXemDiem.setOpaque(false);
-        btnXemDiem.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnXemDiem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnXemDiemActionPerformed(evt);
-            }
-        });
-
-        btnDangNhap.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnDangNhap.setText("Đăng Nhập");
-        btnDangNhap.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnDangNhap.setOpaque(false);
-        btnDangNhap.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        javax.swing.GroupLayout pnThongTinChungLayout = new javax.swing.GroupLayout(pnThongTinChung);
-        pnThongTinChung.setLayout(pnThongTinChungLayout);
-        pnThongTinChungLayout.setHorizontalGroup(
-            pnThongTinChungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnThongTinChungLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(btnChangePassword, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnXemDiem, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnDangXuat, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-        pnThongTinChungLayout.setVerticalGroup(
-            pnThongTinChungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnThongTinChungLayout.createSequentialGroup()
-                .addGroup(pnThongTinChungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnDangXuat, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
-                    .addComponent(btnXemDiem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnChangePassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDangNhap, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("QUẢN LÝ SINH VIÊN");
 
         pnChucNang.setBorder(javax.swing.BorderFactory.createTitledBorder("Chức năng"));
 
@@ -182,20 +125,30 @@ public class FormMainSystem extends javax.swing.JFrame {
             }
         });
 
+        btnDanhSachPhucKhao.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnDanhSachPhucKhao.setText("Danh Sách Phúc Khảo");
+        btnDanhSachPhucKhao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDanhSachPhucKhaoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnChucNangLayout = new javax.swing.GroupLayout(pnChucNang);
         pnChucNang.setLayout(pnChucNangLayout);
         pnChucNangLayout.setHorizontalGroup(
             pnChucNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnChucNangLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnDanhSachLop, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnDanhSachLop, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnThoiKhoaBieu, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnThoiKhoaBieu, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDiem, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnLopMonHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnLopMonHoc)
+                .addGap(18, 18, 18)
+                .addComponent(btnDanhSachPhucKhao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pnChucNangLayout.setVerticalGroup(
             pnChucNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,7 +157,8 @@ public class FormMainSystem extends javax.swing.JFrame {
                     .addComponent(btnDanhSachLop, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnThoiKhoaBieu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnDiem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLopMonHoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnLopMonHoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDanhSachPhucKhao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
@@ -219,19 +173,87 @@ public class FormMainSystem extends javax.swing.JFrame {
             }
         });
 
-        jDesktopPane2.setBackground(new java.awt.Color(255, 255, 255));
-        jDesktopPane2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jDesktopPane2.setDragMode(javax.swing.JDesktopPane.OUTLINE_DRAG_MODE);
+        jDesktopPanelQLSV.setBackground(new java.awt.Color(255, 255, 255));
+        jDesktopPanelQLSV.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jDesktopPanelQLSV.setDragMode(javax.swing.JDesktopPane.OUTLINE_DRAG_MODE);
 
-        javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
-        jDesktopPane2.setLayout(jDesktopPane2Layout);
-        jDesktopPane2Layout.setHorizontalGroup(
-            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jDesktopPanelQLSVLayout = new javax.swing.GroupLayout(jDesktopPanelQLSV);
+        jDesktopPanelQLSV.setLayout(jDesktopPanelQLSVLayout);
+        jDesktopPanelQLSVLayout.setHorizontalGroup(
+            jDesktopPanelQLSVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jDesktopPane2Layout.setVerticalGroup(
-            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 267, Short.MAX_VALUE)
+        jDesktopPanelQLSVLayout.setVerticalGroup(
+            jDesktopPanelQLSVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 595, Short.MAX_VALUE)
+        );
+
+        pnThongTinChung.setBorder(javax.swing.BorderFactory.createTitledBorder("Trang chủ"));
+        pnThongTinChung.setName(""); // NOI18N
+
+        btnChangePassword.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnChangePassword.setText("Đổi Mật Khẩu");
+        btnChangePassword.setFocusPainted(false);
+        btnChangePassword.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnChangePassword.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnChangePassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChangePasswordActionPerformed(evt);
+            }
+        });
+
+        btnDangXuat.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnDangXuat.setText("Đăng Xuất");
+        btnDangXuat.setFocusPainted(false);
+        btnDangXuat.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnDangXuat.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnDangXuat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDangXuatActionPerformed(evt);
+            }
+        });
+
+        btnXemDiem.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnXemDiem.setText("Xem Điểm Sinh Viên");
+        btnXemDiem.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnXemDiem.setOpaque(false);
+        btnXemDiem.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnXemDiem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXemDiemActionPerformed(evt);
+            }
+        });
+
+        btnDangNhap.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnDangNhap.setText("Đăng Nhập");
+        btnDangNhap.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnDangNhap.setOpaque(false);
+        btnDangNhap.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        javax.swing.GroupLayout pnThongTinChungLayout = new javax.swing.GroupLayout(pnThongTinChung);
+        pnThongTinChung.setLayout(pnThongTinChungLayout);
+        pnThongTinChungLayout.setHorizontalGroup(
+            pnThongTinChungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnThongTinChungLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(btnChangePassword)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnXemDiem)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnDangXuat, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        pnThongTinChungLayout.setVerticalGroup(
+            pnThongTinChungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnThongTinChungLayout.createSequentialGroup()
+                .addGroup(pnThongTinChungLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnDangXuat, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+                    .addComponent(btnXemDiem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnChangePassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDangNhap, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -240,26 +262,25 @@ public class FormMainSystem extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnThongTinChung, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(pnChucNang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(18, 18, 18)
+                .addComponent(pnChucNang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
-            .addComponent(jDesktopPane2)
+                .addContainerGap())
+            .addComponent(jDesktopPanelQLSV)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(pnChucNang, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pnThongTinChung, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnChucNang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jDesktopPane2)
-                .addGap(18, 18, 18))
+                        .addGap(26, 26, 26)
+                        .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnThongTinChung, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jDesktopPanelQLSV)
+                .addContainerGap())
         );
 
         pack();
@@ -267,13 +288,18 @@ public class FormMainSystem extends javax.swing.JFrame {
 
     private void btnChangePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePasswordActionPerformed
         FromChangePassword cp = new FromChangePassword(user);
-        jDesktopPane2.removeAll();
+        jDesktopPanelQLSV.removeAll();
         cp.setVisible(true);
-        jDesktopPane2.add(cp);
+        jDesktopPanelQLSV.add(cp);
     }//GEN-LAST:event_btnChangePasswordActionPerformed
 
     private void btnDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangXuatActionPerformed
-
+        jDesktopPanelQLSV.setVisible(false);
+        pnChucNang.setVisible(false);
+        pnThongTinChung.setVisible(false);
+        btnThoat.setVisible(false);
+        FormLogin lg = new FormLogin();
+        lg.setVisible(true);
     }//GEN-LAST:event_btnDangXuatActionPerformed
 
     private void btnXemDiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXemDiemActionPerformed
@@ -282,8 +308,10 @@ public class FormMainSystem extends javax.swing.JFrame {
     }//GEN-LAST:event_btnXemDiemActionPerformed
 
     private void btnDanhSachLopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDanhSachLopActionPerformed
-        FormStudent st = new FormStudent();
-        st.setVisible(true);
+        FormSinhVien sv = new FormSinhVien();
+        sv.setVisible(true);
+        jDesktopPanelQLSV.removeAll();
+        jDesktopPanelQLSV.add(sv);
     }//GEN-LAST:event_btnDanhSachLopActionPerformed
 
     private void btnThoiKhoaBieuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoiKhoaBieuActionPerformed
@@ -306,19 +334,24 @@ public class FormMainSystem extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnThoatActionPerformed
 
+    private void btnDanhSachPhucKhaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDanhSachPhucKhaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDanhSachPhucKhaoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnChangePassword;
     private javax.swing.JButton btnDangNhap;
     private javax.swing.JButton btnDangXuat;
     private javax.swing.JButton btnDanhSachLop;
+    private javax.swing.JButton btnDanhSachPhucKhao;
     private javax.swing.JButton btnDiem;
     private javax.swing.JButton btnLopMonHoc;
     private javax.swing.JButton btnThoat;
     private javax.swing.JButton btnThoiKhoaBieu;
     private javax.swing.JButton btnXemDiem;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JDesktopPane jDesktopPane2;
+    private javax.swing.JDesktopPane jDesktopPanelQLSV;
     private javax.swing.JPanel pnChucNang;
     private javax.swing.JPanel pnThongTinChung;
     // End of variables declaration//GEN-END:variables

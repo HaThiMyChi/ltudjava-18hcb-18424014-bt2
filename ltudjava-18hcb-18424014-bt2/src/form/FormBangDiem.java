@@ -64,7 +64,7 @@ public class FormBangDiem extends javax.swing.JFrame {
         lblDiemTong1 = new javax.swing.JLabel();
         txtDiemTong = new javax.swing.JTextField();
         btnEdit = new javax.swing.JButton();
-        btnHuy = new javax.swing.JButton();
+        btnNhapLai = new javax.swing.JButton();
         pnKetQuaDiem = new javax.swing.JPanel();
         spDanhSachDiem = new javax.swing.JScrollPane();
         tblDanhSachDiem = new javax.swing.JTable();
@@ -124,17 +124,17 @@ public class FormBangDiem extends javax.swing.JFrame {
         lblDiemTong1.setFocusable(false);
         lblDiemTong1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
-        btnEdit.setText(" Edit");
+        btnEdit.setText("Chỉnh sửa");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
             }
         });
 
-        btnHuy.setText("Hủy");
-        btnHuy.addActionListener(new java.awt.event.ActionListener() {
+        btnNhapLai.setText("Nhập lại");
+        btnNhapLai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHuyActionPerformed(evt);
+                btnNhapLaiActionPerformed(evt);
             }
         });
 
@@ -168,7 +168,7 @@ public class FormBangDiem extends javax.swing.JFrame {
                         .addGap(110, 110, 110)
                         .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(57, 57, 57)
-                        .addComponent(btnHuy, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnNhapLai, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnThongTinDiem1Layout.setVerticalGroup(
@@ -207,7 +207,7 @@ public class FormBangDiem extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addGroup(pnThongTinDiem1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnHuy, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnNhapLai, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -244,17 +244,18 @@ public class FormBangDiem extends javax.swing.JFrame {
         });
 
         lblDau.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        lblDau.setText("SÔ SINH VIÊN ĐẬU:");
+        lblDau.setText("SỐ SINH VIÊN ĐẬU:");
 
         lblRot.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lblRot.setText("SỐ SINH VIÊN RỚT:");
 
         txtDau.setEditable(false);
-        txtDau.setBackground(new java.awt.Color(153, 153, 153));
+        txtDau.setBackground(new java.awt.Color(255, 51, 51));
         txtDau.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        txtDau.setForeground(new java.awt.Color(255, 0, 51));
 
         txtRot.setEditable(false);
-        txtRot.setBackground(new java.awt.Color(153, 153, 153));
+        txtRot.setBackground(new java.awt.Color(255, 51, 51));
         txtRot.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         lblTiLe.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -264,11 +265,12 @@ public class FormBangDiem extends javax.swing.JFrame {
         lblTiLe1.setText("TỈ LỆ: ");
 
         txtTileDau.setEditable(false);
-        txtTileDau.setBackground(new java.awt.Color(153, 153, 153));
+        txtTileDau.setBackground(new java.awt.Color(255, 51, 51));
         txtTileDau.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        txtTileDau.setForeground(new java.awt.Color(255, 51, 51));
 
         txtTiLeRot.setEditable(false);
-        txtTiLeRot.setBackground(new java.awt.Color(153, 153, 153));
+        txtTiLeRot.setBackground(new java.awt.Color(255, 51, 51));
         txtTiLeRot.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout pnKetQuaDiemLayout = new javax.swing.GroupLayout(pnKetQuaDiem);
@@ -323,16 +325,16 @@ public class FormBangDiem extends javax.swing.JFrame {
                 .addGap(107, 107, 107)
                 .addGroup(pnKetQuaDiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDau, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDau, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTiLe, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTileDau, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTileDau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnKetQuaDiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblRot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnKetQuaDiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtRot)
                         .addComponent(lblTiLe1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtTiLeRot, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)))
+                        .addComponent(txtTiLeRot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -352,7 +354,7 @@ public class FormBangDiem extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnKetQuaDiem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnThongTinDiem1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 16, Short.MAX_VALUE))
+                .addGap(0, 17, Short.MAX_VALUE))
         );
 
         pack();
@@ -500,19 +502,19 @@ public class FormBangDiem extends javax.swing.JFrame {
         LoadDiemSinhVien(ma[0], ma[1]);
     }//GEN-LAST:event_cbxLopActionPerformed
 
-    private void btnHuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyActionPerformed
+    private void btnNhapLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNhapLaiActionPerformed
        txtmaSSV.setText("");
        txtHoTen.setText("");
        txtDiemGK.setText("");
        txtDiemCK.setText("");
        txtDiemKhac.setText("");
        txtDiemTong.setText("");
-    }//GEN-LAST:event_btnHuyActionPerformed
+    }//GEN-LAST:event_btnNhapLaiActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBangDiem;
     private javax.swing.JButton btnEdit;
-    private javax.swing.JButton btnHuy;
+    private javax.swing.JButton btnNhapLai;
     private javax.swing.JComboBox<String> cbxLop;
     private javax.swing.JLabel lblDau;
     private javax.swing.JLabel lblDiemCuoiKy1;

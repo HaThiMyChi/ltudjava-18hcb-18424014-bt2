@@ -39,10 +39,11 @@ public class FormLogin extends javax.swing.JFrame {
         btnDangNhap = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         lblDangNhap.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        lblDangNhap.setForeground(new java.awt.Color(255, 51, 51));
+        lblDangNhap.setForeground(new java.awt.Color(51, 51, 255));
         lblDangNhap.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDangNhap.setText("ĐĂNG NHẬP");
 
@@ -144,7 +145,21 @@ public class FormLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDangNhapActionPerformed
 
     private void btnDangNhapKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnDangNhapKeyPressed
-        
+        String username = txtDangNhap.getText();
+        String password = new String(txtMatKhau.getPassword());
+        User us = new UserDAO().CheckLogin(username, password);
+        boolean isExisted = false;
+        if(us != null)
+        {
+            isExisted = true;
+            this.setVisible(false);
+            FormMainSystem main = new FormMainSystem(username);
+            main.setVisible(true);
+        }
+        if(isExisted == false)
+        {
+            JOptionPane.showMessageDialog(this, "Bạn đã đăng nhập thất bại! Vui lòng nhập lại username và password! ");
+        }
     }//GEN-LAST:event_btnDangNhapKeyPressed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
@@ -153,7 +168,7 @@ public class FormLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnExitKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnExitKeyPressed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_btnExitKeyPressed
 
 

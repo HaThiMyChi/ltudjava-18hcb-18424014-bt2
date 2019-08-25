@@ -10,6 +10,7 @@ import POJO.*;
 import org.hibernate.Session;
 import connect.*;
 import org.hibernate.Query;
+import org.hibernate.Transaction;
 
 /**
  *
@@ -32,5 +33,46 @@ public class NamHocDAO {
             session.close();
         }
         return lst;
+    }
+    
+    public NamHoc laythongtintheonamhoc(String namhoc)
+    {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        NamHoc nh = null;
+        try {
+            nh = (NamHoc) session.get(NamHoc.class, namhoc);
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        finally
+        {
+            session.close();
+        }
+        return nh;
+    }
+    
+    public boolean themnamhoc(NamHoc OT)
+    {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        if(laythongtintheonamhoc(OT.getManamhoc()) != null)
+        {
+            return false;
+        }
+        Transaction transaction = null;
+        try
+        {
+            transaction = session.beginTransaction();
+            session.save(OT);
+            transaction.commit();
+        }
+        catch(Exception ex)
+        {
+            ex.getMessage();
+        }
+        finally
+        {
+            session.close();
+        }
+        return true;
     }
 }

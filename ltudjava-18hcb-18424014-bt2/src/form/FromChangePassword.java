@@ -45,10 +45,10 @@ public class FromChangePassword extends javax.swing.JFrame {
         btnSave = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblDoiMatKhau.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        lblDoiMatKhau.setForeground(new java.awt.Color(255, 102, 102));
+        lblDoiMatKhau.setForeground(new java.awt.Color(51, 51, 255));
         lblDoiMatKhau.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDoiMatKhau.setText("ĐỔI MẬT KHẨU");
 
@@ -137,6 +137,7 @@ public class FromChangePassword extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed

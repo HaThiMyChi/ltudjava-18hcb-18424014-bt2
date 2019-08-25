@@ -35,4 +35,23 @@ public class HocKyDAO {
         }
         return lst;
     }
+    
+    public HocKy laythongtinhockytheohocky(int ID)
+    {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        HocKy hk = null;
+        try
+        {
+            hk = (HocKy) session.get(HocKy.class, ID);
+        }
+        catch(Exception ex)
+        {
+            ex.getMessage();
+        }
+        finally
+        {
+            session.close();
+        }
+        return hk;
+    }
 }
