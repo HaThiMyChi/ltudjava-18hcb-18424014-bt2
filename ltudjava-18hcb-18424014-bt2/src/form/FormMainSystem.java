@@ -49,8 +49,8 @@ public class FormMainSystem extends javax.swing.JFrame {
         btnDanhSachLop = new javax.swing.JButton();
         btnThoiKhoaBieu = new javax.swing.JButton();
         btnDiem = new javax.swing.JButton();
-        btnLopMonHoc = new javax.swing.JButton();
-        btnDanhSachPhucKhao = new javax.swing.JButton();
+        btnDSPhucKhao = new javax.swing.JButton();
+        btnLopMonHoc1 = new javax.swing.JButton();
         btnThoat = new javax.swing.JButton();
         jDesktopPanelQLSV = new javax.swing.JDesktopPane();
         pnThongTinChung = new javax.swing.JPanel();
@@ -114,22 +114,25 @@ public class FormMainSystem extends javax.swing.JFrame {
             }
         });
 
-        btnLopMonHoc.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnLopMonHoc.setText("Danh Sách Lớp Theo Môn Học");
-        btnLopMonHoc.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnLopMonHoc.setOpaque(false);
-        btnLopMonHoc.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnLopMonHoc.addActionListener(new java.awt.event.ActionListener() {
+        btnDSPhucKhao.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnDSPhucKhao.setText("Danh Sách Phúc Khảo");
+        btnDSPhucKhao.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnDSPhucKhao.setOpaque(false);
+        btnDSPhucKhao.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnDSPhucKhao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLopMonHocActionPerformed(evt);
+                btnDSPhucKhaoActionPerformed(evt);
             }
         });
 
-        btnDanhSachPhucKhao.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnDanhSachPhucKhao.setText("Danh Sách Phúc Khảo");
-        btnDanhSachPhucKhao.addActionListener(new java.awt.event.ActionListener() {
+        btnLopMonHoc1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnLopMonHoc1.setText("Danh Sách Lớp Theo Môn Học");
+        btnLopMonHoc1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnLopMonHoc1.setOpaque(false);
+        btnLopMonHoc1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnLopMonHoc1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDanhSachPhucKhaoActionPerformed(evt);
+                btnLopMonHoc1ActionPerformed(evt);
             }
         });
 
@@ -144,11 +147,11 @@ public class FormMainSystem extends javax.swing.JFrame {
                 .addComponent(btnThoiKhoaBieu, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDiem, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnLopMonHoc)
                 .addGap(18, 18, 18)
-                .addComponent(btnDanhSachPhucKhao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(btnLopMonHoc1)
+                .addGap(18, 18, 18)
+                .addComponent(btnDSPhucKhao)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnChucNangLayout.setVerticalGroup(
             pnChucNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,8 +160,8 @@ public class FormMainSystem extends javax.swing.JFrame {
                     .addComponent(btnDanhSachLop, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnThoiKhoaBieu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnDiem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLopMonHoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDanhSachPhucKhao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnDSPhucKhao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLopMonHoc1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
@@ -185,7 +188,7 @@ public class FormMainSystem extends javax.swing.JFrame {
         );
         jDesktopPanelQLSVLayout.setVerticalGroup(
             jDesktopPanelQLSVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 595, Short.MAX_VALUE)
+            .addGap(0, 588, Short.MAX_VALUE)
         );
 
         pnThongTinChung.setBorder(javax.swing.BorderFactory.createTitledBorder("Trang chủ"));
@@ -261,13 +264,16 @@ public class FormMainSystem extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(6, 6, 6)
                 .addComponent(pnThongTinChung, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(pnChucNang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(pnChucNang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
                 .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jDesktopPanelQLSV)
                 .addContainerGap())
-            .addComponent(jDesktopPanelQLSV)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,10 +281,10 @@ public class FormMainSystem extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnChucNang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
+                        .addGap(23, 23, 23)
                         .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(pnThongTinChung, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jDesktopPanelQLSV)
                 .addContainerGap())
         );
@@ -324,29 +330,29 @@ public class FormMainSystem extends javax.swing.JFrame {
         bangDiem.setVisible(true);
     }//GEN-LAST:event_btnDiemActionPerformed
 
-    private void btnLopMonHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLopMonHocActionPerformed
-        FormDangKyMonHoc dkmh = new FormDangKyMonHoc();
-        dkmh.setVisible(true);
-    }//GEN-LAST:event_btnLopMonHocActionPerformed
+    private void btnDSPhucKhaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDSPhucKhaoActionPerformed
+        FormDSPhucKhao dsPhucKhao = new FormDSPhucKhao();
+        dsPhucKhao.setVisible(true);
+    }//GEN-LAST:event_btnDSPhucKhaoActionPerformed
 
     private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_btnThoatActionPerformed
 
-    private void btnDanhSachPhucKhaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDanhSachPhucKhaoActionPerformed
+    private void btnLopMonHoc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLopMonHoc1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnDanhSachPhucKhaoActionPerformed
+    }//GEN-LAST:event_btnLopMonHoc1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnChangePassword;
+    private javax.swing.JButton btnDSPhucKhao;
     private javax.swing.JButton btnDangNhap;
     private javax.swing.JButton btnDangXuat;
     private javax.swing.JButton btnDanhSachLop;
-    private javax.swing.JButton btnDanhSachPhucKhao;
     private javax.swing.JButton btnDiem;
-    private javax.swing.JButton btnLopMonHoc;
+    private javax.swing.JButton btnLopMonHoc1;
     private javax.swing.JButton btnThoat;
     private javax.swing.JButton btnThoiKhoaBieu;
     private javax.swing.JButton btnXemDiem;

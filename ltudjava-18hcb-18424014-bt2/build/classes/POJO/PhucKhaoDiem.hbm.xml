@@ -46,17 +46,24 @@ Contributor(s):
 <hibernate-mapping>
     <class name="POJO.PhucKhaoDiem" table="tblphuckhaodiem">
         <composite-id>
-            <key-property name="studentid" column="StudentID" type="string" length="10"></key-property>
-            <key-property name="mamon" column="MaMon" type="string" length="20"></key-property>
+            <key-property name="studentId" column="StudentID" type="string" length="10"></key-property>
+            <key-property name="maLop" column="MaLop" type="string" length="10"></key-property>
+            <key-property name="maMon" column="MaMon" type="string" length="20"></key-property>
         </composite-id>
-        <property name="cotdiemcanphuckhao" type="string">
+        <property name="cotDiemCanPhucKhao" type="string">
             <column length="255" name="CotDiemCanPhucKhao"/>
         </property>
-        <property name="diemmongmuon" type="float">
+        <property name="DiemMongMuon" type="float">
             <column length="10" name="DiemMongMuon"></column>
         </property>
-        <property name="lido" type="string">
+        <property name="liDo" type="string">
             <column length="255" name="LiDo"/>
+        </property>
+          <property name="ngayDangKy" type="date">
+            <column length="255" name="NgayDangKy"></column>
+        </property>
+        <property name="idTinhTrang" type="int">
+            <column length="255" name="IDtinhtrang"/>
         </property>
     </class>
 </hibernate-mapping>

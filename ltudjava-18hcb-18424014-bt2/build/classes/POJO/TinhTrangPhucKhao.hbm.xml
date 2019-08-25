@@ -44,26 +44,14 @@ Contributor(s):
   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="POJO.PhucKhaoDiem" table="tblphuckhaodiem">
-        <composite-id>
-            <key-property name="studentId" column="StudentID" type="string" length="10"></key-property>
-            <key-property name="maLop" column="MaLop" type="string" length="10"></key-property>
-            <key-property name="maMon" column="MaMon" type="string" length="20"></key-property>
-        </composite-id>
-        <property name="cotDiemCanPhucKhao" type="string">
-            <column length="255" name="CotDiemCanPhucKhao"/>
-        </property>
-        <property name="DiemMongMuon" type="float">
-            <column length="10" name="DiemMongMuon"></column>
-        </property>
-        <property name="liDo" type="string">
-            <column length="255" name="LiDo"/>
-        </property>
-          <property name="ngayDangKy" type="date">
-            <column length="255" name="NgayDangKy"></column>
-        </property>
-        <property name="idTinhTrang" type="int">
-            <column length="255" name="IDtinhtrang"/>
+    <class name="POJO.TinhTrangPhucKhao" table="tbltinhtrangphuckhao">
+        <id name="id" type="int">
+            <column length="10" name="ID" not-null = "true"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="tenTinhTrangPhucKhao" type="string">
+            <column length="255" name="Tentinhtrangphuckhao"/>
         </property>
     </class>
+
 </hibernate-mapping>

@@ -10,25 +10,21 @@ import org.hibernate.Session;
 import connect.*;
 import org.hibernate.Query;
 import org.hibernate.Transaction;
-
 /**
  *
  * @author Ha Chi
  */
-public class PhucKhaoDiemDAO {
-    public List<PhucKhaoDiem> laythongtinphuckhaodiem()
+public class LichPhucKhaoDAO {
+    public List<LichPhucKhao> laythongtin()
     {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        List<PhucKhaoDiem> lst = null;
-        try
-        {
-            String hql = "from PhucKhaoDiem";
+        List<LichPhucKhao> lst = null;
+        try {
+            String hql = "from LichPhucKhao";
             Query query = session.createQuery(hql);
             lst = query.list();
-        }
-        catch(Exception ex)
-        {
-            ex.getMessage();
+        } catch (Exception e) {
+            e.getMessage();
         }
         finally
         {
@@ -37,22 +33,12 @@ public class PhucKhaoDiemDAO {
         return lst;
     }
     
-    public PhucKhaoDiem laythongtintheostudentidvamamon(String studentid, String malop, String mamon)
+    public LichPhucKhao laythongtintheoID(int ID)
     {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        PhucKhaoDiem pkd = null;
+        LichPhucKhao lpk = null;
         try {
-            String hql = "from PhucKhaoDiem where studentId = :studentid and maLop = :malop and maMon = :mamon";
-            Query query = session.createQuery(hql);
-            query.setParameter("studentid", studentid);
-            query.setParameter("malop", malop);
-            query.setParameter("mamon", mamon);
-            List<PhucKhaoDiem> lst = query.list();
-            int size = lst.size();
-            for(int i = 0; i < size; i++)
-            {
-                pkd = lst.get(i);
-            }
+            lpk = (LichPhucKhao) session.get(LichPhucKhao.class, ID);
         } catch (Exception e) {
             e.getMessage();
         }
@@ -60,27 +46,24 @@ public class PhucKhaoDiemDAO {
         {
             session.close();
         }
-        return pkd;
+        return lpk;
     }
     
-    public boolean themphuckhaodiem(PhucKhaoDiem OT)
+    public boolean themlichphuckhao(LichPhucKhao OT)
     {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        if(laythongtintheostudentidvamamon(OT.getStudentId(), OT.getMaLop(), OT.getMaMon()) != null)
+        if(laythongtintheoID(OT.getId()) != null)
         {
             return false;
         }
         Transaction transaction = null;
-        try
-        {
+        try {
             transaction = session.beginTransaction();
             session.save(OT);
             transaction.commit();
-        }
-        catch(Exception ex)
-        {
+        } catch (Exception e) {
             transaction.rollback();
-            ex.getMessage();
+            e.getMessage();
         }
         finally
         {
@@ -89,24 +72,45 @@ public class PhucKhaoDiemDAO {
         return true;
     }
     
-    public boolean capnhatphuckhao(PhucKhaoDiem OT)
+    public boolean capnhatlichphuckhao(LichPhucKhao OT)
     {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        if(laythongtintheostudentidvamamon(OT.getStudentId(), OT.getMaLop(), OT.getMaMon()) == null)
+        if(laythongtintheoID(OT.getId()) == null)
         {
             return false;
         }
         Transaction transaction = null;
-        try
-        {
+        try {
             transaction = session.beginTransaction();
             session.update(OT);
             transaction.commit();
-        }
-        catch(Exception ex)
-        {
+        } catch (Exception e) {
             transaction.rollback();
-            ex.getMessage();
+            e.getMessage();
+        }
+        finally
+        {
+            session.close();
+        }
+        return true;
+    }
+    
+    public boolean XoaLichPhucKhao(int ID)
+    {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        LichPhucKhao lpk = laythongtintheoID(ID);
+        if(lpk == null)
+        {
+            return false;
+        }
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
+            session.delete(ID);
+            transaction.commit();
+        } catch (Exception e) {
+            transaction.rollback();
+            e.getMessage();
         }
         finally
         {

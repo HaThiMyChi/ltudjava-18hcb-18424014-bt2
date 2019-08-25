@@ -4,57 +4,87 @@
  * and open the template in the editor.
  */
 package POJO;
+
 import java.io.*;
+import java.util.Date;
+
 /**
  *
  * @author Ha Chi
  */
-public class PhucKhaoDiem implements Serializable{
+public class PhucKhaoDiem implements Serializable {
+
     private static final long serialVersionUID = 1L;
-    private String studentid;
-    private String mamon;
-    private String cotdiemcanphuckhao;
-    private float diemmongmuon;
-    private String lido;
-    
-    public String getStudentid() {
-        return studentid;
+    private String studentId;
+    private String maLop;
+    private String maMon;
+    private String cotDiemCanPhucKhao;
+    private float DiemMongMuon;
+    private String liDo;
+    private Date ngayDangKy;
+    private int idTinhTrang;
+
+    public String getStudentId() {
+        return studentId;
     }
 
-    public void setStudentid(String studentid) {
-        this.studentid = studentid;
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
 
-    public String getMamon() {
-        return mamon;
+    public String getMaMon() {
+        return maMon;
     }
 
-    public void setMamon(String mamon) {
-        this.mamon = mamon;
+    public void setMaMon(String maMon) {
+        this.maMon = maMon;
     }
 
-    public String getCotdiemcanphuckhao() {
-        return cotdiemcanphuckhao;
+    public String getMaLop() {
+        return maLop;
     }
 
-    public void setCotdiemcanphuckhao(String cotdiemcanphuckhao) {
-        this.cotdiemcanphuckhao = cotdiemcanphuckhao;
+    public void setMaLop(String maLop) {
+        this.maLop = maLop;
     }
 
-    public float getDiemmongmuon() {
-        return diemmongmuon;
+    public String getCotDiemCanPhucKhao() {
+        return cotDiemCanPhucKhao;
     }
 
-    public void setDiemmongmuon(float diemmongmuon) {
-        this.diemmongmuon = diemmongmuon;
+    public void setCotDiemCanPhucKhao(String cotDiemCanPhucKhao) {
+        this.cotDiemCanPhucKhao = cotDiemCanPhucKhao;
     }
 
-    public String getLido() {
-        return lido;
+    public float getDiemMongMuon() {
+        return DiemMongMuon;
     }
 
-    public void setLido(String lido) {
-        this.lido = lido;
+    public void setDiemMongMuon(float DiemMongMuon) {
+        this.DiemMongMuon = DiemMongMuon;
     }
-    
+
+    public String getLiDo() {
+        return liDo;
+    }
+
+    public void setLiDo(String liDo) {
+        this.liDo = liDo;
+    }
+
+    public Date getNgayDangKy() {
+        return ngayDangKy;
+    }
+
+    public void setNgayDangKy(Date ngayDangKy) {
+        this.ngayDangKy = ngayDangKy;
+    }
+
+    public int getIdTinhTrang() {
+        return idTinhTrang;
+    }
+
+    public void setIdTinhTrang(int idTinhTrang) {
+        this.idTinhTrang = idTinhTrang;
+    }
 }

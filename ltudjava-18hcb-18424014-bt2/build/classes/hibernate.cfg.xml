@@ -55,5 +55,7 @@ Contributor(s):
     <mapping resource="POJO/HocKy.hbm.xml"/>
     <mapping resource="POJO/NamHoc.hbm.xml"/>
     <mapping resource="POJO/PhucKhaoDiem.hbm.xml"/>
+    <mapping resource="POJO/LichPhucKhao.hbm.xml"/>
+    <mapping resource="POJO/TinhTrangPhucKhao.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

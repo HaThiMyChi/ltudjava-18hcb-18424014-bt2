@@ -26,17 +26,27 @@
           <Component id="lblPhucKhaoDiem" alignment="0" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="lblHoTen" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lblMSSV" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lblMonThi" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lblCotDiem" alignment="0" pref="171" max="32767" attributes="0"/>
-                          <Component id="lblDiemMongMuon" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lblLido" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lblLopMonHoc" max="32767" attributes="0"/>
+                                  <Component id="lblHoTen" alignment="0" pref="171" max="32767" attributes="0"/>
+                                  <Component id="lblMSSV" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblMonThi" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblCotDiem" alignment="1" min="-2" pref="171" max="-2" attributes="0"/>
+                                  <Component id="lblDiemMongMuon" alignment="1" min="-2" pref="171" max="-2" attributes="0"/>
+                                  <Component id="lblLido" alignment="1" min="-2" pref="171" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="txtCotDiemCanPhucKhao" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtMaSSV" alignment="0" pref="315" max="32767" attributes="0"/>
@@ -44,14 +54,15 @@
                           <Component id="txtMonThi" alignment="0" pref="315" max="32767" attributes="0"/>
                           <Component id="txtDiemMongMuon" alignment="1" max="32767" attributes="0"/>
                           <Component id="txtLydo" alignment="0" pref="315" max="32767" attributes="0"/>
+                          <Component id="cbbLopMonHoc" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
                       <Component id="btnDangKy" min="-2" pref="215" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="132" max="32767" attributes="0"/>
+              <EmptySpace pref="119" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -77,23 +88,28 @@
                   <Component id="txtMonThi" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="lblCotDiem" min="-2" pref="42" max="-2" attributes="0"/>
-                  <Component id="txtCotDiemCanPhucKhao" min="-2" pref="42" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblLopMonHoc" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                  <Component id="cbbLopMonHoc" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="lblDiemMongMuon" pref="42" max="32767" attributes="0"/>
-                  <Component id="txtDiemMongMuon" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblCotDiem" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                  <Component id="txtCotDiemCanPhucKhao" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="lblLido" min="-2" pref="42" max="-2" attributes="0"/>
-                  <Component id="txtLydo" min="-2" pref="42" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblDiemMongMuon" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                  <Component id="txtDiemMongMuon" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblLido" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                  <Component id="txtLydo" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Component id="btnDangKy" min="-2" pref="53" max="-2" attributes="0"/>
-              <EmptySpace pref="45" max="32767" attributes="0"/>
+              <EmptySpace pref="140" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -104,6 +120,9 @@
     <Component class="javax.swing.JTextField" name="txtHoTenSV">
     </Component>
     <Component class="javax.swing.JTextField" name="txtMonThi">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMonThiActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCotDiemCanPhucKhao">
     </Component>
@@ -191,6 +210,27 @@
         </Property>
         <Property name="text" type="java.lang.String" value="L&#xfd; do r&#xf5; r&#xe0;ng, c&#x1ee5; th&#x1ec3;:"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblLopMonHoc">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="M&#xe3; l&#x1edb;p m&#xf4;n h&#x1ecd;c:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbbLopMonHoc">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="14" style="0"/>
+        </Property>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
