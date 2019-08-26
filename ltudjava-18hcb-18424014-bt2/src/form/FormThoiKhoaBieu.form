@@ -56,7 +56,9 @@
                   <Component id="cbbMonHoc" min="-2" pref="182" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btnThoiKhoaBieu" min="-2" pref="180" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="305" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="177" max="-2" attributes="0"/>
+                  <Component id="btnThoat" min="-2" pref="103" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
@@ -71,7 +73,10 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="cbbMonHoc" max="32767" attributes="0"/>
-                      <Component id="btnThoiKhoaBieu" pref="52" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnThoiKhoaBieu" alignment="3" pref="52" max="32767" attributes="0"/>
+                          <Component id="btnThoat" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="spThoiKhoaBieu" min="-2" pref="251" max="-2" attributes="0"/>
@@ -120,6 +125,14 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnThoat">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Tho&#xe1;t"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnThoatActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

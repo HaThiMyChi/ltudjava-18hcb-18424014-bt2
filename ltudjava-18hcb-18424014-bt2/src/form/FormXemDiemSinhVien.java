@@ -37,7 +37,9 @@ public class FormXemDiemSinhVien extends javax.swing.JFrame {
         SimpleDateFormat dt1 = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat dt2 = new SimpleDateFormat("dd/MM/yyyy");
         lst.forEach((exp) -> {
-            lblthongbao.setText("Thời gian phúc khảo từ ngày " + dt1.format(exp.getNgayBatDau()) + " đến ngày " + dt2.format(exp.getNgayKetThuc()));
+            if (exp.getNgayBatDau() != null && exp.getNgayKetThuc() != null) {
+                lblthongbao.setText("Thời gian phúc khảo từ ngày " + dt1.format(exp.getNgayBatDau()) + " đến ngày " + dt2.format(exp.getNgayKetThuc()));
+            }
         });
     }
 
@@ -214,39 +216,41 @@ public class FormXemDiemSinhVien extends javax.swing.JFrame {
         int size = lsttkb.size();
         for (int i = 0; i < size; i++) {
             BangDiem bd = new BangDiemDAO().layTheoMaLopMaMonAndStudentID(lsttkb.get(i).getMaLop(), lsttkb.get(i).getMaMon(), username);
-            DefaultTableModel model = (DefaultTableModel) tblBangDiem.getModel();
-            model.setRowCount(0);
-            String[] columnsName = {"MSSV", "Họ Tên", "Môn thi", "Điểm Giữa kỳ", "Điểm Cuối kỳ", "Điểm Khác", "Điểm Tổng Kết", "Kết Quả"};
-            model.setColumnIdentifiers(columnsName);
-            Vector row = new Vector();
-            row.add(bd.getStudentID());
-            Student st = new StudentDAO().laythongtinsinhvientheoID(bd.getStudentID());
-            row.add(st.getFullname());
-            MonHoc mh = new MonHocDAO().laythongtinmonhoctheoID(bd.getMaMon());
-            row.add(mh.getTenMon());
-            row.add(bd.getDiemGK());
-            row.add(bd.getDiemCK());
-            row.add(bd.getDiemKhac());
-            row.add(bd.getDiemTong());
-            String KQ;
-            if (bd.getDiemTong() < 5) {
-                KQ = "Rớt";
-            } else {
-                KQ = "Đậu";
+            if (bd != null) {
+                DefaultTableModel model = (DefaultTableModel) tblBangDiem.getModel();
+                model.setRowCount(0);
+                String[] columnsName = {"MSSV", "Họ Tên", "Môn thi", "Điểm Giữa kỳ", "Điểm Cuối kỳ", "Điểm Khác", "Điểm Tổng Kết", "Kết Quả"};
+                model.setColumnIdentifiers(columnsName);
+                Vector row = new Vector();
+                row.add(bd.getStudentID());
+                Student st = new StudentDAO().laythongtinsinhvientheoID(bd.getStudentID());
+                row.add(st.getFullname());
+                MonHoc mh = new MonHocDAO().laythongtinmonhoctheoID(bd.getMaMon());
+                row.add(mh.getTenMon());
+                row.add(bd.getDiemGK());
+                row.add(bd.getDiemCK());
+                row.add(bd.getDiemKhac());
+                row.add(bd.getDiemTong());
+                String KQ;
+                if (bd.getDiemTong() < 5) {
+                    KQ = "Rớt";
+                } else {
+                    KQ = "Đậu";
+                }
+                row.add(KQ);
+                model.addRow(row);
             }
-            row.add(KQ);
-            model.addRow(row);
         }
         List<LichPhucKhao> lst = new LichPhucKhaoDAO().laythongtin();
         lst.forEach((exp) -> {
-            long milis = System.currentTimeMillis();
-            java.util.Date date = new java.sql.Date(milis);
-            if (exp.getNgayKetThuc().compareTo(date) > 0) {
-                btnPhucKhaoDiem.setVisible(true);
-            }
-            else
-            {
-                btnPhucKhaoDiem.setVisible(false);
+            if (exp.getNgayBatDau() != null && exp.getNgayKetThuc() != null) {
+                long milis = System.currentTimeMillis();
+                java.util.Date date = new java.sql.Date(milis);
+                if (exp.getNgayKetThuc().compareTo(date) > 0) {
+                    btnPhucKhaoDiem.setVisible(true);
+                } else {
+                    btnPhucKhaoDiem.setVisible(false);
+                }
             }
         });
     }//GEN-LAST:event_btnXemDiem1ActionPerformed

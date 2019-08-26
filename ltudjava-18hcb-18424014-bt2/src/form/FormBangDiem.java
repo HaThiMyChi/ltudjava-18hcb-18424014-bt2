@@ -78,6 +78,7 @@ public class FormBangDiem extends javax.swing.JFrame {
         lblTiLe1 = new javax.swing.JLabel();
         txtTileDau = new javax.swing.JTextField();
         txtTiLeRot = new javax.swing.JTextField();
+        btnThoat = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -252,7 +253,6 @@ public class FormBangDiem extends javax.swing.JFrame {
         txtDau.setEditable(false);
         txtDau.setBackground(new java.awt.Color(255, 51, 51));
         txtDau.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        txtDau.setForeground(new java.awt.Color(255, 0, 51));
 
         txtRot.setEditable(false);
         txtRot.setBackground(new java.awt.Color(255, 51, 51));
@@ -267,11 +267,17 @@ public class FormBangDiem extends javax.swing.JFrame {
         txtTileDau.setEditable(false);
         txtTileDau.setBackground(new java.awt.Color(255, 51, 51));
         txtTileDau.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        txtTileDau.setForeground(new java.awt.Color(255, 51, 51));
 
         txtTiLeRot.setEditable(false);
         txtTiLeRot.setBackground(new java.awt.Color(255, 51, 51));
         txtTiLeRot.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        btnThoat.setText("Thoát");
+        btnThoat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThoatActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnKetQuaDiemLayout = new javax.swing.GroupLayout(pnKetQuaDiem);
         pnKetQuaDiem.setLayout(pnKetQuaDiemLayout);
@@ -280,12 +286,10 @@ public class FormBangDiem extends javax.swing.JFrame {
             .addGroup(pnKetQuaDiemLayout.createSequentialGroup()
                 .addGroup(pnKetQuaDiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnKetQuaDiemLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(spDanhSachDiem, javax.swing.GroupLayout.DEFAULT_SIZE, 764, Short.MAX_VALUE))
+                    .addGroup(pnKetQuaDiemLayout.createSequentialGroup()
                         .addGroup(pnKetQuaDiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnKetQuaDiemLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(cbxLop, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnBangDiem, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnKetQuaDiemLayout.createSequentialGroup()
                                 .addGap(34, 34, 34)
                                 .addGroup(pnKetQuaDiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -306,11 +310,15 @@ public class FormBangDiem extends javax.swing.JFrame {
                                     .addGroup(pnKetQuaDiemLayout.createSequentialGroup()
                                         .addComponent(lblTiLe1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtTiLeRot)))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pnKetQuaDiemLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(spDanhSachDiem, javax.swing.GroupLayout.DEFAULT_SIZE, 764, Short.MAX_VALUE)))
+                                        .addComponent(txtTiLeRot))))
+                            .addGroup(pnKetQuaDiemLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(cbxLop, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnBangDiem, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(94, 94, 94)
+                                .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnKetQuaDiemLayout.setVerticalGroup(
@@ -319,7 +327,8 @@ public class FormBangDiem extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnKetQuaDiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnBangDiem, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                    .addComponent(cbxLop))
+                    .addComponent(cbxLop)
+                    .addComponent(btnThoat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(44, 44, 44)
                 .addComponent(spDanhSachDiem, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(107, 107, 107)
@@ -409,8 +418,13 @@ public class FormBangDiem extends javax.swing.JFrame {
             txtDau.setText(Integer.toString(Dau));
             txtRot.setText(Integer.toString(Rot));
             int tong = Dau + Rot;
-            TileDau = ((Dau * 100) / tong);
-            TileRot = ((Rot * 100) / tong);
+            if (Dau == 0 && Rot == 0) {
+                TileDau = 0;
+                TileRot = 0;
+            } else {
+                TileDau = ((Dau * 100) / tong);
+                TileRot = ((Rot * 100) / tong);
+            }
             txtTileDau.setText(Integer.toString(TileDau) + "%");
             txtTiLeRot.setText(Integer.toString(TileRot) + "%");
         }
@@ -484,11 +498,8 @@ public class FormBangDiem extends javax.swing.JFrame {
                         bd.setDiemTong(Float.parseFloat(str[5]));
                         new BangDiemDAO().insertBangDiem(bd);
                     }
-                    LoadDiemSinhVien(fi, mh);
-                    cbxLop.removeAllItems();
-                    LoadLopMonHoc();
-                    cbxLop.removeItemAt(0);
                     cbxLop.setSelectedItem(fi + "-" + mh);
+                    LoadDiemSinhVien(fi, mh);
                 } catch (IOException | NumberFormatException ex) {
                     ex.getMessage();
                 }
@@ -503,18 +514,24 @@ public class FormBangDiem extends javax.swing.JFrame {
     }//GEN-LAST:event_cbxLopActionPerformed
 
     private void btnNhapLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNhapLaiActionPerformed
-       txtmaSSV.setText("");
-       txtHoTen.setText("");
-       txtDiemGK.setText("");
-       txtDiemCK.setText("");
-       txtDiemKhac.setText("");
-       txtDiemTong.setText("");
+        txtmaSSV.setText("");
+        txtHoTen.setText("");
+        txtDiemGK.setText("");
+        txtDiemCK.setText("");
+        txtDiemKhac.setText("");
+        txtDiemTong.setText("");
     }//GEN-LAST:event_btnNhapLaiActionPerformed
+
+    private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_btnThoatActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBangDiem;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnNhapLai;
+    private javax.swing.JButton btnThoat;
     private javax.swing.JComboBox<String> cbxLop;
     private javax.swing.JLabel lblDau;
     private javax.swing.JLabel lblDiemCuoiKy1;

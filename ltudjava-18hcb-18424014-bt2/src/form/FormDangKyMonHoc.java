@@ -107,6 +107,7 @@ public class FormDangKyMonHoc extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDanhSachLopMonHoc = new javax.swing.JTable();
         btnDelete = new javax.swing.JButton();
+        btnThoat = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -302,6 +303,14 @@ public class FormDangKyMonHoc extends javax.swing.JFrame {
             }
         });
 
+        btnThoat.setText("Thoát");
+        btnThoat.setActionCommand("Thoát");
+        btnThoat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThoatActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnDanhSachLayout = new javax.swing.GroupLayout(pnDanhSach);
         pnDanhSach.setLayout(pnDanhSachLayout);
         pnDanhSachLayout.setHorizontalGroup(
@@ -309,7 +318,9 @@ public class FormDangKyMonHoc extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnDanhSachLayout.createSequentialGroup()
                 .addContainerGap(150, Short.MAX_VALUE)
                 .addComponent(cbxLopMonHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(401, 401, 401))
+                .addGap(120, 120, 120)
+                .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(154, 154, 154))
             .addGroup(pnDanhSachLayout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -320,7 +331,9 @@ public class FormDangKyMonHoc extends javax.swing.JFrame {
             pnDanhSachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnDanhSachLayout.createSequentialGroup()
                 .addGap(45, 45, 45)
-                .addComponent(cbxLopMonHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnDanhSachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbxLopMonHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -357,7 +370,7 @@ public class FormDangKyMonHoc extends javax.swing.JFrame {
         List<ThoiKhoaBieu> lst = new ThoiKhoaBieuDAO().layThongTinTKBTheoMaMon(su.getMaMon());
         int size = lst.size();
         for (int i = 0; i < size; i++) {
-            cbxMaLopMonHoc.addItem(lst.get(i).getMaLop() + '-' + lst.get(i).getMaMon());
+            cbxMaLopMonHoc.addItem(lst.get(i).getMaLop() + "-" + lst.get(i).getMaMon());
         }
     }//GEN-LAST:event_cbxMonHocActionPerformed
 
@@ -430,10 +443,16 @@ public class FormDangKyMonHoc extends javax.swing.JFrame {
         cbxLop.setSelectedItem(st.getMalop());
     }//GEN-LAST:event_txtMSSVActionPerformed
 
+    private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_btnThoatActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnNhapLai;
     private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnThoat;
     private javax.swing.JComboBox<String> cbxLop;
     private javax.swing.JComboBox<String> cbxLopMonHoc;
     private javax.swing.JComboBox<String> cbxMaLopMonHoc;

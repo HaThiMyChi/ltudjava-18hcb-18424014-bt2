@@ -53,6 +53,7 @@ public class FormThoiKhoaBieu extends javax.swing.JFrame {
         spThoiKhoaBieu = new javax.swing.JScrollPane();
         tblThoiKhoaBieu = new javax.swing.JTable();
         cbbMonHoc = new javax.swing.JComboBox<>();
+        btnThoat = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -86,6 +87,13 @@ public class FormThoiKhoaBieu extends javax.swing.JFrame {
             }
         });
 
+        btnThoat.setText("Thoát");
+        btnThoat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThoatActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnThoiKhoaBieuLayout = new javax.swing.GroupLayout(pnThoiKhoaBieu);
         pnThoiKhoaBieu.setLayout(pnThoiKhoaBieuLayout);
         pnThoiKhoaBieuLayout.setHorizontalGroup(
@@ -95,7 +103,9 @@ public class FormThoiKhoaBieu extends javax.swing.JFrame {
                 .addComponent(cbbMonHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnThoiKhoaBieu, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(305, 305, 305))
+                .addGap(177, 177, 177)
+                .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
             .addGroup(pnThoiKhoaBieuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(spThoiKhoaBieu)
@@ -107,7 +117,9 @@ public class FormThoiKhoaBieu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnThoiKhoaBieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cbbMonHoc)
-                    .addComponent(btnThoiKhoaBieu, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE))
+                    .addGroup(pnThoiKhoaBieuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnThoiKhoaBieu, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+                        .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(38, 38, 38)
                 .addComponent(spThoiKhoaBieu, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(102, Short.MAX_VALUE))
@@ -191,7 +203,7 @@ public class FormThoiKhoaBieu extends javax.swing.JFrame {
                         MonHoc mh = new MonHoc();
                         mh.setMaMon(str[0]);
                         mh.setTenMon(str[1]);
-                        if(new HocKyDAO().laythongtinhockytheohocky(i) != null)
+                        if(new HocKyDAO().laythongtinhockytheohocky(hocky) != null)
                         {
                             tkb.setHocky(hocky);
                         }
@@ -237,7 +249,13 @@ public class FormThoiKhoaBieu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_formWindowClosed
 
+    private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed
+        // TODO add your handling code here:
+       this.setVisible(false);
+    }//GEN-LAST:event_btnThoatActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnThoat;
     private javax.swing.JButton btnThoiKhoaBieu;
     private javax.swing.JComboBox<String> cbbMonHoc;
     private javax.swing.JPanel pnThoiKhoaBieu;

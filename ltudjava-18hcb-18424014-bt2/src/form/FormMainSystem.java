@@ -51,6 +51,7 @@ public class FormMainSystem extends javax.swing.JFrame {
         btnDiem = new javax.swing.JButton();
         btnDSPhucKhao = new javax.swing.JButton();
         btnLopMonHoc1 = new javax.swing.JButton();
+        btnLichPhucKhao = new javax.swing.JButton();
         btnThoat = new javax.swing.JButton();
         jDesktopPanelQLSV = new javax.swing.JDesktopPane();
         pnThongTinChung = new javax.swing.JPanel();
@@ -136,6 +137,17 @@ public class FormMainSystem extends javax.swing.JFrame {
             }
         });
 
+        btnLichPhucKhao.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnLichPhucKhao.setText("Lịch Phúc Khảo");
+        btnLichPhucKhao.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnLichPhucKhao.setOpaque(false);
+        btnLichPhucKhao.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnLichPhucKhao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLichPhucKhaoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnChucNangLayout = new javax.swing.GroupLayout(pnChucNang);
         pnChucNang.setLayout(pnChucNangLayout);
         pnChucNangLayout.setHorizontalGroup(
@@ -150,8 +162,10 @@ public class FormMainSystem extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnLopMonHoc1)
                 .addGap(18, 18, 18)
+                .addComponent(btnLichPhucKhao, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDSPhucKhao)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         pnChucNangLayout.setVerticalGroup(
             pnChucNangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +175,8 @@ public class FormMainSystem extends javax.swing.JFrame {
                     .addComponent(btnThoiKhoaBieu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnDiem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnDSPhucKhao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLopMonHoc1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnLopMonHoc1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLichPhucKhao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
@@ -264,26 +279,27 @@ public class FormMainSystem extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(pnThongTinChung, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pnChucNang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jDesktopPanelQLSV)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(pnThongTinChung, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(pnChucNang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDesktopPanelQLSV))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pnChucNang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(pnChucNang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pnThongTinChung, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(pnThongTinChung, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(21, 21, 21)
+                        .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jDesktopPanelQLSV)
                 .addContainerGap())
@@ -343,8 +359,15 @@ public class FormMainSystem extends javax.swing.JFrame {
     }//GEN-LAST:event_btnThoatActionPerformed
 
     private void btnLopMonHoc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLopMonHoc1ActionPerformed
-        // TODO add your handling code here:
+        FormDangKyMonHoc dk = new FormDangKyMonHoc();
+        dk.setVisible(true);
     }//GEN-LAST:event_btnLopMonHoc1ActionPerformed
+
+    private void btnLichPhucKhaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLichPhucKhaoActionPerformed
+        // TODO add your handling code here:
+        FormLichPhucKhao lpk = new FormLichPhucKhao();
+        lpk.setVisible(true);
+    }//GEN-LAST:event_btnLichPhucKhaoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -354,6 +377,7 @@ public class FormMainSystem extends javax.swing.JFrame {
     private javax.swing.JButton btnDangXuat;
     private javax.swing.JButton btnDanhSachLop;
     private javax.swing.JButton btnDiem;
+    private javax.swing.JButton btnLichPhucKhao;
     private javax.swing.JButton btnLopMonHoc1;
     private javax.swing.JButton btnThoat;
     private javax.swing.JButton btnThoiKhoaBieu;

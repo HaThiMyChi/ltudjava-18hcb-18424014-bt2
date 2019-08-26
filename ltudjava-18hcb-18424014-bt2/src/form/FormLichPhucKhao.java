@@ -47,6 +47,7 @@ public class FormLichPhucKhao extends javax.swing.JFrame {
         lblDangNhap = new javax.swing.JLabel();
         dtcngaybatdau = new com.toedter.calendar.JDateChooser();
         dtcngayketthuc = new com.toedter.calendar.JDateChooser();
+        btnthoat = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,6 +80,13 @@ public class FormLichPhucKhao extends javax.swing.JFrame {
         lblDangNhap.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDangNhap.setText("LỊCH PHÚC KHẢO");
 
+        btnthoat.setText("Thoát");
+        btnthoat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnthoatActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -96,7 +104,9 @@ public class FormLichPhucKhao extends javax.swing.JFrame {
                             .addComponent(dtcngayketthuc, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(105, 105, 105)
-                        .addComponent(btnLuuLai, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnLuuLai, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnthoat, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
@@ -131,7 +141,9 @@ public class FormLichPhucKhao extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(dtcngayketthuc, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnLuuLai, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnLuuLai, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                            .addComponent(btnthoat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
@@ -155,6 +167,10 @@ public class FormLichPhucKhao extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnLuuLaiActionPerformed
 
+    private void btnthoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthoatActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_btnthoatActionPerformed
+
     private void LoadLichPhucKhao() {
         List<LichPhucKhao> lst = new LichPhucKhaoDAO().laythongtin();
         tbllichphuckhao.setRowHeight(30);
@@ -165,10 +181,14 @@ public class FormLichPhucKhao extends javax.swing.JFrame {
         lst.stream().map((exp) -> {
             Vector row = new Vector();
             row.add(exp.getId());
-            SimpleDateFormat dt = new SimpleDateFormat("dd/MM/yyyy");
-            row.add(dt.format(exp.getNgayBatDau()));
-            SimpleDateFormat dt1 = new SimpleDateFormat("dd/MM/yyyy");
-            row.add(dt1.format(exp.getNgayBatDau()));
+            if (exp.getNgayBatDau() != null) {
+                SimpleDateFormat dt = new SimpleDateFormat("dd/MM/yyyy");
+                row.add(dt.format(exp.getNgayBatDau()));
+            }
+            if (exp.getNgayKetThuc() != null) {
+                SimpleDateFormat dt1 = new SimpleDateFormat("dd/MM/yyyy");
+                row.add(dt1.format(exp.getNgayKetThuc()));
+            }
             return row;
         }).forEachOrdered((row) -> {
             model.addRow(row);
@@ -178,6 +198,7 @@ public class FormLichPhucKhao extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLuuLai;
+    private javax.swing.JButton btnthoat;
     private com.toedter.calendar.JDateChooser dtcngaybatdau;
     private com.toedter.calendar.JDateChooser dtcngayketthuc;
     private com.toedter.calendar.JCalendar jCalendar1;
